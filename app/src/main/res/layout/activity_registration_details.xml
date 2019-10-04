@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrationDetailsActivity">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@color/project_yellow_color"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgBackArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_left_15"
+                android:layout_marginLeft="@dimen/margin_left_15"
+                android:src="@drawable/ic_arrow_back_white_24dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                >
+
+                <!--<TextView
+                    android:id="@+id/txtRegDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Details"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_16"
+                    android:textStyle="bold" />-->
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ImglinearProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearDetail"
+            android:gravity="center">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/regUserImg"
+                android:layout_width="@dimen/margin_width_120"
+                android:layout_height="@dimen/margin_height_120"
+                android:layout_gravity="center"
+                android:padding="15dp"
+                android:src="@drawable/circularimg" />
+        </LinearLayout>
+
+
+        <ScrollView
+            android:id="@+id/scrollData"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ImglinearProfile">
+
+            <LinearLayout
+                android:id="@+id/lineardata"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_10"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtUserName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Name"
+                        android:maxLines="1"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_20"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edtTxtInputUserName"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_40"
+                        android:background="@drawable/input_round_shape"
+                        android:hint="Enter Name"
+                        android:maxLines="1"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_10">
+
+                    <TextView
+                        android:id="@+id/txtUserEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:maxLines="1"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edtTxtInputUserEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_40"
+                        android:background="@drawable/input_round_shape"
+                        android:hint="Enter Email"
+                        android:maxLines="1"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        />
+
+                </LinearLayout>
+
+
+                <!--  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/margin_top_10">
+
+                      <TextView
+                          android:id="@+id/txtUserMobile"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:text="Mobile "
+                          android:maxLines="1"
+                          android:padding="4dp"
+                          android:textColor="@color/black"
+                          android:textSize="@dimen/size_20" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <EditText
+                          android:id="@+id/edtTxtInputUserMobile"
+                          android:layout_width="match_parent"
+                          android:layout_height="@dimen/margin_40"
+                          android:background="@drawable/input_round_shape"
+                          android:hint="Enter Mobile"
+                          android:maxLines="1"
+                          android:padding="4dp"
+                          android:textColor="@color/black"/>
+
+                  </LinearLayout>-->
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_10">
+
+                    <TextView
+                        android:id="@+id/txtUserDOB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Date Of Birth"
+                        android:maxLines="1"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_20"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/edtTxtInputUserDOB"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_40"
+                        android:layout_weight="1"
+                        android:background="@drawable/input_round_shape"
+                        android:hint="Enter DOB"
+                        android:maxLines="1"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+
+                        />
+
+
+                    <ImageView
+                        android:id="@+id/dobCalenderPicker"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/calender_image" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:background="@null"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/padding_right_30dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="4dp"
+                        android:text="Gender"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_20" />
+                    <RadioGroup
+                        android:id="@+id/radiogroup_Gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_left_10"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radio_Male"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/_10dp"
+                            android:text=" Male "
+                            tools:ignore="OnClick" />
+
+                        <RadioButton
+                            android:id="@+id/radio_female"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/padding_10"
+                            android:text=" Female "
+                            tools:ignore="OnClick" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:background="@null"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/padding_right_30dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="4dp"
+                        android:text="Role"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_20" />
+                    <RadioGroup
+                        android:id="@+id/radiogroup_Role"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_left_5"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radio_Customer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Customer"
+                            android:onClick="onUserRadioButtonClicked"
+                            tools:ignore="OnClick" />
+
+                        <RadioButton
+                            android:id="@+id/radio_Driver"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Driver"
+                            android:onClick="onUserRadioButtonClicked"
+                            tools:ignore="OnClick" />
+
+                        <RadioButton
+                            android:id="@+id/radio_MillUser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MillUser "
+                            android:onClick="onUserRadioButtonClicked"
+                            tools:ignore="OnClick" />
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_10">
+
+                    <TextView
+                        android:id="@+id/txtUserAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Address "
+                        android:maxLines="1"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_20"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="80dp">
+
+                    <EditText
+                        android:id="@+id/edtTxtInputUserAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_100"
+                        android:background="@drawable/input_round_shape"
+                        android:hint="Enter Address "
+                        android:maxLines="5"
+                        android:maxLength="100"
+                        android:inputType="textCapWords"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_20"
+                        android:gravity="start"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_20">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <Button
+                            android:id="@+id/btnSubmitDetails"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Submit "
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:background="@drawable/btn_shape_draw"
+                            android:textColor="@color/project_yellow_color"
+                            android:textSize="@dimen/size_20"
+                            android:textStyle="bold"
+                            android:layout_alignParentBottom="true"
+                            />
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

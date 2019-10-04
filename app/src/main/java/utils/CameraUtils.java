@@ -15,8 +15,8 @@ import android.util.Log;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
 
-import com.thehighway.BuildConfig;
-import com.thehighway.activity.RegistrationDetailsActivity;
+import com.highwayjprproject.BuildConfig;
+import com.highwayjprproject.RegistrationDetailsActivity;
 
 import java.io.File;
 import java.text.SimpleDateFormat;

@@ -9,12 +9,12 @@
 
     <gradient
         android:angle="0"
-        android:endColor="@color/project_yellow_color"
-        android:startColor="@color/project_yellow_color"
+        android:endColor="@color/black"
+        android:startColor="@color/black"
         android:type="linear" />
 
 
-    <stroke
+ <!--   <stroke
         android:width="2dp"
-        android:color="@color/yellow" />
+        android:color="@color/yellow" />-->
 </shape>

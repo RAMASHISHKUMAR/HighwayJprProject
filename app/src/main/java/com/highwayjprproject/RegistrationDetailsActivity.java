@@ -1,6 +1,7 @@
 package com.highwayjprproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -10,6 +11,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Base64;
@@ -59,6 +61,7 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
     String userName, userEmail, userMobNo, userDobDate, userAddress, userId;
     private DatePickerDialog datePickerDialog;
 
+    private Toolbar regToolbar;
 
     // Activity request codes
     private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
@@ -86,51 +89,32 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
     private String base64UserImg;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_details);
 
         initView();  // finding by id
+        setOnClickListener();
         calenderPickOperation();         //  calender picker
         radioGenderGroupOperation();    // gender group operation
         backArrowOperation();
-
-
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                regDetailValidationOperation();
-
-            }
-        });
-
-
-        imgDetailProfile.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                if (CameraUtils.checkPermissions(getApplicationContext())) {
-                    captureImage();
-                } else {
-                    requestCameraPermission(MEDIA_TYPE_IMAGE);
-                }
-            }
-        });
     }
 
-    public void initView(){
 
-        imgDetailbackArrow = findViewById(R.id.imgBackArrow);
+    public void initView() {
+
+        regToolbar = findViewById(R.id.regToolbar);
+        setSupportActionBar(regToolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        regToolbar.setTitle("");
+        regToolbar.setSubtitle("");
+
+        imgDetailbackArrow = findViewById(R.id.regBackArrow);
         imgDetailProfile = findViewById(R.id.regUserImg);
 
         edtTxtUserName = findViewById(R.id.edtTxtInputUserName);
         edtTxtUserEmail = findViewById(R.id.edtTxtInputUserEmail);
-        //  edtTxtUserMobile = findViewById(R.id.edtTxtInputUserMobile);
         edtTxtUserAddress = findViewById(R.id.edtTxtInputUserAddress);
 
         imgCalenderDatePicker = findViewById(R.id.dobCalenderPicker);
@@ -149,7 +133,32 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
         radioGroup_RoleUser = (RadioGroup) findViewById(R.id.radiogroup_Role);
     }
 
+    public void setOnClickListener() {
 
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                regDetailValidationOperation();
+
+            }
+        });
+
+
+        imgDetailProfile.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (CameraUtils.checkPermissions(getApplicationContext())) {
+                    captureImage();
+                } else {
+                    requestCameraPermission(MEDIA_TYPE_IMAGE);
+                }
+            }
+        });
+
+
+    }
 
 
     private void requestCameraPermission(final int type) {
@@ -331,14 +340,15 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
 
                     userRadioCustomer.setText("Customer");
                 userRole = userRadioCustomer.getText().toString().trim();
+                Toast.makeText(this, userRadioCustomer.getText().toString(), Toast.LENGTH_SHORT).show();
                 break;
-
 
             case R.id.radio_Driver:
                 if (checked)
 
                     userRadioDiver.setText("Driver");       // userRadioDiver.setText("Driver");
                 userRole = userRadioDiver.getText().toString().trim();
+                Toast.makeText(this, userRadioDiver.getText().toString(), Toast.LENGTH_SHORT).show();
                 break;
 
 
@@ -347,11 +357,11 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
 
                     userRadioMillUser.setText("MillUser");
                 userRole = userRadioMillUser.getText().toString().trim();
+                Toast.makeText(this, userRadioMillUser.getText().toString(), Toast.LENGTH_SHORT).show();
                 break;
         }
     }
 
-    // email validation operation perform
     public boolean inputValidation() {
 
         userName = edtTxtUserName.getText().toString().trim();
@@ -383,13 +393,6 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
             return false;
         }
 
-        /*if (userMobNo.isEmpty()) {
-            edtTxtUserMobile.setError("enter valid mobile numbere");
-            return false;
-        } else {
-            edtTxtUserMobile.setError(null);
-        }*/
-
         if (userDobDate.isEmpty()) {
             edtTxtUserDobDate.setError("enter a valid D.O.B");
             return false;
@@ -418,7 +421,6 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
     }
 
 
-
     public void regDetailValidationOperation() {
 
         if (inputValidation()) {
@@ -428,22 +430,20 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
             registrationDetailsRequest.setEmail(userEmail);
             registrationDetailsRequest.setDob(userDobDate);
             registrationDetailsRequest.setGender(gender);
-            //registrationDetailsRequest.setRole(userRole);
             registrationDetailsRequest.setAddress(userAddress);
             registrationDetailsRequest.setBase64File(base64UserImg);   // img uploading
-            userId = HighwayPreface.getString(getApplicationContext(), "id");
+            userId = HighwayPreface.getString(getApplicationContext(), Constants.ID);
             registrationDetailsRequest.setUserId(userId);
 
-            if (userRole.equalsIgnoreCase("customer")) {
+            if (userRole.equalsIgnoreCase("Customer")) {
                 registrationDetailsRequest.setRoleId("4");
 
-            } else if (userRole.equalsIgnoreCase("driver")) {
+            } else if (userRole.equalsIgnoreCase("Driver")) {
                 registrationDetailsRequest.setRoleId("3");
 
-            } else if (userRole.equalsIgnoreCase("millUser")) {
+            } else if (userRole.equalsIgnoreCase("MillUser")) {
                 registrationDetailsRequest.setRoleId("2");
             }
-
 
             Utils.showProgressDialog(getApplicationContext());
 
@@ -452,24 +452,23 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
                 public void onResponse(Call<RegistrationDetailsResponse> call, Response<RegistrationDetailsResponse> response) {
 
                     Utils.dismissProgressDialog();
-                    // id= 1 admin ,2 mealUser , 3 driver , 4 customer, 5 owner
+
                     if (response.body() != null && response.body().getStatus()) {
                         if (response.body().getUserStatus().equalsIgnoreCase("1")) {
-                                Intent intent = new Intent(RegistrationDetailsActivity.this, DashBoardActivity.class);
-                               HighwayPreface.putString(getApplicationContext(),Constants.ROLEID,response.body().getRoleId());
 
-                                startActivity(intent);
-                                finish();
+                            Intent intent = new Intent(RegistrationDetailsActivity.this, DashBoardActivity.class);
 
+                            HighwayPreface.putString(getApplicationContext(), Constants.ROLEID, response.body().getRoleId());
 
+                            startActivity(intent);
+                            finish();
 
                         } else if (response.body().getStatus() == false) {
                             Toast.makeText(RegistrationDetailsActivity.this, "Sign up Failed", Toast.LENGTH_SHORT).show();
-                        }else{
+                        } else {
                             Toast.makeText(RegistrationDetailsActivity.this, "Pls Enter your details", Toast.LENGTH_SHORT).show();
                         }
                     }
-
                 }
 
                 @Override
@@ -477,13 +476,31 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
                     Toast.makeText(RegistrationDetailsActivity.this, "Failure", Toast.LENGTH_SHORT).show();
                 }
             });
-
-
         }
+
     }
 
+// onBacked pressed registration
+    boolean doubleBackToExitPressedOnce = false;
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
 
+        this.doubleBackToExitPressedOnce = true;
 
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
+    }
 
 
 

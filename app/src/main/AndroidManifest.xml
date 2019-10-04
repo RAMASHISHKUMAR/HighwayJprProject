@@ -21,16 +21,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/highway_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegistrationDetailsActivity"></activity>
+        <activity android:name=".RegistrationDetailsActivity" android:screenOrientation="portrait"></activity>
         <activity
             android:name=".DashBoardActivity"
             android:label="@string/title_activity_dash_board"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait"/>
         <activity android:name=".MobileOtpVerificationActivity" android:screenOrientation="portrait" />
         <activity android:name=".LoginRegisterActivity" android:screenOrientation="portrait"/>
         <activity android:name=".SplashActivity" android:screenOrientation="portrait">
@@ -40,9 +40,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
 
         <provider
             android:name="androidx.core.content.FileProvider"

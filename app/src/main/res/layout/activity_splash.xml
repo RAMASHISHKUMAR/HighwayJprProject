@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".SplashActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imgLogo"
@@ -24,4 +27,6 @@
         android:gravity="center_horizontal"
         android:layout_alignParentBottom="true"
         android:text="www.highway@.info"/>
+
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

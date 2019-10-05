@@ -13,12 +13,32 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@color/black"
         android:fitsSystemWindows="true"
         app:itemIconTint="@color/white"
-        android:background="@color/black"
         app:itemTextColor="@color/white"
-        app:headerLayout="@layout/nav_header_dash_board"
-        app:menu="@menu/activity_dash_board_drawer" />
+        app:menu="@menu/activity_dash_board_drawer">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/log_out_btn_shape_draw"
+                android:text="Log out"
+                android:textAllCaps="false"
+                android:textColor="@color/black">
+            </Button>
+        </LinearLayout>
+    </com.google.android.material.navigation.NavigationView>
 
     <include
         layout="@layout/app_bar_dash_board"

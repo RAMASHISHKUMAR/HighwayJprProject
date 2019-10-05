@@ -37,13 +37,14 @@ import java.util.List;
 
 import model.RegistrationDetailsRequest;
 import model.RegistrationDetailsResponse;
+import okhttp3.internal.Util;
 import retrofit.RestClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import utils.CameraUtils;
 import utils.Constants;
-import utils.HighwayPreface;
+import utils.HighwayPrefs;
 import utils.Utils;
 
 public class RegistrationDetailsActivity extends AppCompatActivity {
@@ -432,7 +433,7 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
             registrationDetailsRequest.setGender(gender);
             registrationDetailsRequest.setAddress(userAddress);
             registrationDetailsRequest.setBase64File(base64UserImg);   // img uploading
-            userId = HighwayPreface.getString(getApplicationContext(), Constants.ID);
+            userId = HighwayPrefs.getString(getApplicationContext(), Constants.ID);
             registrationDetailsRequest.setUserId(userId);
 
             if (userRole.equalsIgnoreCase("Customer")) {
@@ -445,37 +446,46 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
                 registrationDetailsRequest.setRoleId("2");
             }
 
-            Utils.showProgressDialog(getApplicationContext());
+            if (Utils.isInternetConnected(this)) {
+                Utils.showProgressDialog(getApplicationContext());
 
-            RestClient.regDetails(registrationDetailsRequest, new Callback<RegistrationDetailsResponse>() {
-                @Override
-                public void onResponse(Call<RegistrationDetailsResponse> call, Response<RegistrationDetailsResponse> response) {
+                RestClient.regDetails(registrationDetailsRequest, new Callback<RegistrationDetailsResponse>() {
+                    @Override
+                    public void onResponse(Call<RegistrationDetailsResponse> call, Response<RegistrationDetailsResponse> response) {
 
-                    Utils.dismissProgressDialog();
+                        Utils.dismissProgressDialog();
 
-                    if (response.body() != null && response.body().getStatus()) {
-                        if (response.body().getUserStatus().equalsIgnoreCase("1")) {
+                        if (response.body() != null && response.body().getStatus()) {
+                            if (response.body().getUserStatus().equalsIgnoreCase("1")) {
 
-                            Intent intent = new Intent(RegistrationDetailsActivity.this, DashBoardActivity.class);
+                                Intent intent = new Intent(RegistrationDetailsActivity.this, DashBoardActivity.class);
 
-                            HighwayPreface.putString(getApplicationContext(), Constants.ROLEID, response.body().getRoleId());
+                                HighwayPrefs.putString(getApplicationContext(), Constants.ROLEID, response.body().getRoleId());
+                                HighwayPrefs.putString(getApplicationContext(), Constants.NAME, response.body().getName());
+                                HighwayPrefs.putString(getApplicationContext(), Constants.USERMOBILE, response.body().getMobile());
+                                /* use our requirement  */
+                                HighwayPrefs.putString(getApplicationContext(), Constants.IMAGE, response.body().getImage());
+                                HighwayPrefs.putString(getApplicationContext(), Constants.EMAIL, response.body().getEmail());
+                                HighwayPrefs.putString(getApplicationContext(), Constants.GENDER, response.body().getGender());
+                                HighwayPrefs.putString(getApplicationContext(), Constants.ADDRESS, response.body().getAddress());
 
-                            startActivity(intent);
-                            finish();
+                                startActivity(intent);
+                                finish();
 
-                        } else if (response.body().getStatus() == false) {
-                            Toast.makeText(RegistrationDetailsActivity.this, "Sign up Failed", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(RegistrationDetailsActivity.this, "Pls Enter your details", Toast.LENGTH_SHORT).show();
+                            } else if (response.body().getStatus() == false) {
+                                Toast.makeText(RegistrationDetailsActivity.this, "Sign up Failed", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(RegistrationDetailsActivity.this, "Pls Enter your details", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
-                }
 
-                @Override
-                public void onFailure(Call<RegistrationDetailsResponse> call, Throwable t) {
-                    Toast.makeText(RegistrationDetailsActivity.this, "Failure", Toast.LENGTH_SHORT).show();
-                }
-            });
+                    @Override
+                    public void onFailure(Call<RegistrationDetailsResponse> call, Throwable t) {
+                        Toast.makeText(RegistrationDetailsActivity.this, "Failure", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
         }
 
     }

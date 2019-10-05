@@ -15,8 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import model.VerifyOtpRequest;
 import model.VerifyOtpResponse;
 import retrofit.RestClient;
@@ -24,7 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import utils.Constants;
-import utils.HighwayPreface;
+import utils.HighwayPrefs;
 import utils.Utils;
 
 public class MobileOtpVerificationActivity extends AppCompatActivity {
@@ -92,7 +90,7 @@ public class MobileOtpVerificationActivity extends AppCompatActivity {
 
         boolean check = true;
         String otpNumber = verifyPin.getText().toString().trim();
-        String usermobileNumber = HighwayPreface.getString(getApplicationContext(), Constants.USERMOBNO);
+        String usermobileNumber = HighwayPrefs.getString(getApplicationContext(), Constants.USERMOBILE);
 
         if (otpNumber.isEmpty()) {
             verifyPin.setError("enter a valid otp");
@@ -106,54 +104,61 @@ public class MobileOtpVerificationActivity extends AppCompatActivity {
             verifyOtpRequest.setOtp(otpNumber);
             verifyOtpRequest.setMobile(usermobileNumber);
 
-            Utils.showProgressDialog(this);
+            if (Utils.isInternetConnected(this)) {
 
-            RestClient.otpVerify(verifyOtpRequest, new Callback<VerifyOtpResponse>() {
-                @Override
-                public void onResponse(Call<VerifyOtpResponse> call, Response<VerifyOtpResponse> response) {
-                    Utils.dismissProgressDialog();
 
-                    if (response.body() != null) {
-                        if (response.body().getUserStatus().equalsIgnoreCase("1")) {
-                            Intent intent = new Intent(MobileOtpVerificationActivity.this, DashBoardActivity.class);
-                            HighwayPreface.putString(getApplicationContext(), Constants.NAME, response.body().getName());
-                            HighwayPreface.putString(getApplicationContext(), Constants.USERMOBILE, response.body().getMobile());
-                            HighwayPreface.putString(getApplicationContext(), Constants.IMAGE, response.body().getImage());
-                            HighwayPreface.putString(getApplicationContext(), Constants.EMAIL, response.body().getEmail());
-                            HighwayPreface.putString(getApplicationContext(), Constants.GENDER, response.body().getGender());
-                            HighwayPreface.putString(getApplicationContext(), Constants.ROLEID, response.body().getRoleId());
-                            HighwayPreface.putString(getApplicationContext(), Constants.ADDRESS, response.body().getAddress());
-                            HighwayPreface.putBoolean(getApplicationContext(), Constants.LOGGED_IN, true);
-                            startActivity(intent);
-                            Toast.makeText(MobileOtpVerificationActivity.this, "Wlcm to Highway", Toast.LENGTH_SHORT).show();
-                            finish();
-                        } else if (TextUtils.isEmpty(response.body().getName())) {
-                            Intent intent = new Intent(MobileOtpVerificationActivity.this, RegistrationDetailsActivity.class);
+                Utils.showProgressDialog(this);
 
-                            HighwayPreface.putString(getApplicationContext(), Constants.ID, response.body().getId());
+                RestClient.otpVerify(verifyOtpRequest, new Callback<VerifyOtpResponse>() {
+                    @Override
+                    public void onResponse(Call<VerifyOtpResponse> call, Response<VerifyOtpResponse> response) {
+                        Utils.dismissProgressDialog();
 
-                            startActivity(intent);
-                            finish();
+                        if (response.body() != null) {
+                            if (response.body().getUserStatus().equalsIgnoreCase("1")) {
+                                Intent intent = new Intent(MobileOtpVerificationActivity.this, DashBoardActivity.class);
+
+                                HighwayPrefs.putBoolean(getApplicationContext(), Constants.LOGGED_IN, true);
+                                HighwayPrefs.putString(getApplicationContext(), Constants.NAME, response.body().getName());
+                                HighwayPrefs.putString(getApplicationContext(), Constants.USERMOBILE, response.body().getMobile());
+                                HighwayPrefs.putString(getApplicationContext(), Constants.IMAGE, response.body().getImage());
+                                HighwayPrefs.putString(getApplicationContext(), Constants.EMAIL, response.body().getEmail());
+                                HighwayPrefs.putString(getApplicationContext(), Constants.GENDER, response.body().getGender());
+                                HighwayPrefs.putString(getApplicationContext(), Constants.ROLEID, response.body().getRoleId());
+                                HighwayPrefs.putString(getApplicationContext(), Constants.ADDRESS, response.body().getAddress());
+
+                                startActivity(intent);
+                                Toast.makeText(MobileOtpVerificationActivity.this, "Wlcm to Highway", Toast.LENGTH_SHORT).show();
+                                finish();
+
+                            } else if (TextUtils.isEmpty(response.body().getName())) {
+                                Intent intent = new Intent(MobileOtpVerificationActivity.this, RegistrationDetailsActivity.class);
+
+                                HighwayPrefs.putString(getApplicationContext(), Constants.ID, response.body().getId());
+
+                                startActivity(intent);
+                                finish();
+                            }
+                        } else {
+                            Toast.makeText(MobileOtpVerificationActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                         }
-                    } else {
-                        Toast.makeText(MobileOtpVerificationActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+
+
                     }
 
+                    @Override
+                    public void onFailure(Call<VerifyOtpResponse> call, Throwable t) {
+                        Toast.makeText(MobileOtpVerificationActivity.this, "Otp verification failed", Toast.LENGTH_SHORT).show();
 
-                }
-
-                @Override
-                public void onFailure(Call<VerifyOtpResponse> call, Throwable t) {
-                    Toast.makeText(MobileOtpVerificationActivity.this, "Otp verification failed", Toast.LENGTH_SHORT).show();
-
-                }
-            });
-
+                    }
+                });
+            }
         }
     }
 
-// onBacked pressed
+    // onBacked pressed
     boolean doubleBackToExitPressedOnce = false;
+
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {

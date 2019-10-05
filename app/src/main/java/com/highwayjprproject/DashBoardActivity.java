@@ -3,9 +3,6 @@ package com.highwayjprproject;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,12 +22,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import utils.Constants;
-import utils.HighwayPreface;
+import utils.HighwayPrefs;
 
 public class DashBoardActivity extends AppCompatActivity {
 
@@ -42,6 +38,8 @@ public class DashBoardActivity extends AppCompatActivity {
     String name, image, mobNo;
     private TextView tvName, tvMobileNo, tvSetting;
     private NavigationView navigationView;
+    String userRole;
+    private MenuItem newBooking, myBooking, wallet, notification, rateCard, help, about, share, send,gallery;
 
 
     @Override
@@ -51,8 +49,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
         nevigationInitView();
         updateNavViewHeader();
-
-
+        navAccoringRoleId();           // According RoleId Nevigation Icon
 
       /*  FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -67,9 +64,13 @@ public class DashBoardActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
 
 
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
+       mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home,
+                R.id.nav_gallery,
+                R.id.nav_slideshow,
+                R.id.nav_tools,
+                R.id.nav_share,
+                R.id.nav_send)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -78,25 +79,39 @@ public class DashBoardActivity extends AppCompatActivity {
     }
 
     public void nevigationInitView() {
-
+        //toolbar
         dashBoardToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(dashBoardToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        // avigation Header
         navigationView = findViewById(R.id.nav_view);
         View headerView = navigationView.inflateHeaderView(R.layout.nav_header_dash_board);
-
-        nevCircularUserImgView =headerView.findViewById(R.id.imageView);
+        nevCircularUserImgView = headerView.findViewById(R.id.imageView);
         nevUserName = headerView.findViewById(R.id.userProfileName);
         nevUserMobNo = headerView.findViewById(R.id.userMobileNo);
+
+        // navigation menuItem
+        // View headerView = navigationView.getHeaderView(0);
+        Menu menues = navigationView.getMenu();
+        newBooking = menues.findItem(R.id.nav_new_booking);
+        myBooking = menues.findItem(R.id.nav_my_booking);
+        wallet = menues.findItem(R.id.nav_wallet);
+        notification = menues.findItem(R.id.nav_notification);
+        rateCard = menues.findItem(R.id.nav_rate_card);
+        help = menues.findItem(R.id.nav_help);
+        about = menues.findItem(R.id.nav_about);
+        share = menues.findItem(R.id.nav_share);
+        send = menues.findItem(R.id.nav_send);
+        gallery = menues.findItem(R.id.nav_gallery);
+
 
     }
 
     public void updateNavViewHeader() {
         Intent intent = getIntent();
-        image = HighwayPreface.getString(getApplicationContext(), Constants.IMAGE);
-        name = HighwayPreface.getString(getApplicationContext(), Constants.NAME);
-        mobNo = HighwayPreface.getString(getApplicationContext(), Constants.MOBILE);
+        image = HighwayPrefs.getString(getApplicationContext(), Constants.IMAGE);
+        name = HighwayPrefs.getString(getApplicationContext(), Constants.NAME);
+        mobNo = HighwayPrefs.getString(getApplicationContext(), Constants.USERMOBILE);
 
         nevUserName.setText(name);
         nevUserMobNo.setText(mobNo);
@@ -111,8 +126,54 @@ public class DashBoardActivity extends AppCompatActivity {
                     .error(R.drawable.highway_logo)
                     .into(nevCircularUserImgView);
         }
+    }
+
+    public void navAccoringRoleId() {
+        userRole = HighwayPrefs.getString(getApplicationContext(), Constants.ROLEID);
+        switch (userRole) {
+            case "4":
+                newBooking.setVisible(true);
+                myBooking.setVisible(true);
+                wallet.setVisible(true);
+                notification.setVisible(true);
+                rateCard.setVisible(true);
+                help.setVisible(true);
+                about.setVisible(true);
+                share.setVisible(true);
+                send.setVisible(true);
+                gallery.setVisible(false);
+                break;
+
+            case "3":
+                newBooking.setVisible(false);
+                myBooking.setVisible(true);
+                wallet.setVisible(true);
+                notification.setVisible(true);
+                rateCard.setVisible(false);
+                help.setVisible(true);
+                about.setVisible(true);
+                share.setVisible(false);
+                send.setVisible(false);
+                gallery.setVisible(false);
+                break;
+
+
+            case "2":
+                newBooking.setVisible(true);
+                myBooking.setVisible(true);
+                wallet.setVisible(true);
+                notification.setVisible(true);
+                rateCard.setVisible(true);
+                help.setVisible(true);
+                about.setVisible(true);
+                share.setVisible(true);
+                send.setVisible(true);
+                gallery.setVisible(true);
+                break;
+        }
 
     }
+
 
     @Override
     public void onBackPressed() {
@@ -138,7 +199,6 @@ public class DashBoardActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public boolean onSupportNavigateUp() {

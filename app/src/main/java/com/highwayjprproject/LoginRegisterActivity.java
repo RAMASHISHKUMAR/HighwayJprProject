@@ -17,7 +17,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import utils.Constants;
-import utils.HighwayPreface;
+import utils.HighwayPrefs;
 import utils.Utils;
 
 public class LoginRegisterActivity extends AppCompatActivity {
@@ -68,31 +68,36 @@ public class LoginRegisterActivity extends AppCompatActivity {
 
             LoginRegisterRequest loginRegisterRequest = new LoginRegisterRequest();
             loginRegisterRequest.setMobile(phone_number);
-            Utils.showProgressDialog(this);
 
-            RestClient.loginUser(loginRegisterRequest, new Callback<LoginRegisterResponse>() {
-                @Override
-                public void onResponse(Call<LoginRegisterResponse> call, Response<LoginRegisterResponse> response) {
-                    Utils.dismissProgressDialog();
-                    if (response.body()!=null){
-                        if (response.body().getStatus()==true){
-                          //  HighwayPreface.putBoolean(LoginRegisterActivity.this, Constants.LOGGED_IN, true);
-                           // HighwayPreface.putString(LoginRegisterActivity.this, Constants.USERMOBILE, loginRegisterRequest.getMobile());
-                            Intent intent = new Intent(LoginRegisterActivity.this,MobileOtpVerificationActivity.class);
-                             HighwayPreface.putString(LoginRegisterActivity.this,Constants.USERMOBNO,phone_number);
-                            startActivity(intent);
-                            finish();
-                            Toast.makeText(LoginRegisterActivity.this, "pls Verify Otp", Toast.LENGTH_SHORT).show();
+            if (Utils.isInternetConnected(this)) {
+
+                Utils.showProgressDialog(this);
+
+                RestClient.loginUser(loginRegisterRequest, new Callback<LoginRegisterResponse>() {
+                    @Override
+                    public void onResponse(Call<LoginRegisterResponse> call, Response<LoginRegisterResponse> response) {
+                        Utils.dismissProgressDialog();
+                        if (response.body() != null) {
+                            if (response.body().getStatus() == true) {
+                                //  HighwayPrefs.putBoolean(LoginRegisterActivity.this, Constants.LOGGED_IN, true);
+                                // HighwayPrefs.putString(LoginRegisterActivity.this, Constants.USERMOBILE, loginRegisterRequest.getMobile());
+                                Intent intent = new Intent(LoginRegisterActivity.this, MobileOtpVerificationActivity.class);
+                                HighwayPrefs.putString(LoginRegisterActivity.this, Constants.USERMOBILE, phone_number);
+                                startActivity(intent);
+                                finish();
+                                Toast.makeText(LoginRegisterActivity.this, "pls Verify Otp", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
-                }
 
-                @Override
-                public void onFailure(Call<LoginRegisterResponse> call, Throwable t) {
-                    Toast.makeText(LoginRegisterActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+                    @Override
+                    public void onFailure(Call<LoginRegisterResponse> call, Throwable t) {
+                        Toast.makeText(LoginRegisterActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
 
-                }
-            });
+                    }
+                });
+
+            }
         }
     }
 

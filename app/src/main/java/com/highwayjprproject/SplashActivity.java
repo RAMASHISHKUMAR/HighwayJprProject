@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import utils.Constants;
-import utils.HighwayPreface;
+import utils.HighwayPrefs;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (HighwayPreface.getBoolean(SplashActivity.this, Constants.LOGGED_IN)) {
+                if (HighwayPrefs.getBoolean(SplashActivity.this, Constants.LOGGED_IN)) {
                     Intent i = new Intent(SplashActivity.this, LoginRegisterActivity.class);
                     startActivity(i);
                     finish();

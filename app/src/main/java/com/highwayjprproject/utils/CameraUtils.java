@@ -1,4 +1,4 @@
-package utils;
+package com.highwayjprproject.utils;
 
 import android.Manifest;
 import android.content.Context;
@@ -16,7 +16,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
 
 import com.highwayjprproject.BuildConfig;
-import com.highwayjprproject.RegistrationDetailsActivity;
+import com.highwayjprproject.activity.RegistrationDetailsActivity;
 
 import java.io.File;
 import java.text.SimpleDateFormat;

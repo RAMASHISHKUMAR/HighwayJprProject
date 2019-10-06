@@ -1,4 +1,4 @@
-package com.highwayjprproject;
+package com.highwayjprproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -24,6 +24,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.highwayjprproject.R;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -35,17 +36,17 @@ import java.io.File;
 import java.util.Calendar;
 import java.util.List;
 
-import model.RegistrationDetailsRequest;
-import model.RegistrationDetailsResponse;
-import okhttp3.internal.Util;
-import retrofit.RestClient;
+import com.highwayjprproject.model.RegistrationDetailsRequest;
+import com.highwayjprproject.model.RegistrationDetailsResponse;
+
+import com.highwayjprproject.retrofit.RestClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import utils.CameraUtils;
-import utils.Constants;
-import utils.HighwayPrefs;
-import utils.Utils;
+import com.highwayjprproject.utils.CameraUtils;
+import com.highwayjprproject.utils.Constants;
+import com.highwayjprproject.utils.HighwayPrefs;
+import com.highwayjprproject.utils.Utils;
 
 public class RegistrationDetailsActivity extends AppCompatActivity {
 
@@ -110,6 +111,7 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         regToolbar.setTitle("");
         regToolbar.setSubtitle("");
+
 
         imgDetailbackArrow = findViewById(R.id.regBackArrow);
         imgDetailProfile = findViewById(R.id.regUserImg);

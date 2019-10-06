@@ -1,4 +1,4 @@
-package com.highwayjprproject;
+package com.highwayjprproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,15 +10,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import model.LoginRegisterRequest;
-import model.LoginRegisterResponse;
-import retrofit.RestClient;
+import com.highwayjprproject.R;
+import com.highwayjprproject.model.LoginRegisterRequest;
+import com.highwayjprproject.model.LoginRegisterResponse;
+import com.highwayjprproject.retrofit.RestClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import utils.Constants;
-import utils.HighwayPrefs;
-import utils.Utils;
+import com.highwayjprproject.utils.Constants;
+import com.highwayjprproject.utils.HighwayPrefs;
+import com.highwayjprproject.utils.Utils;
 
 public class LoginRegisterActivity extends AppCompatActivity {
 
@@ -79,8 +80,6 @@ public class LoginRegisterActivity extends AppCompatActivity {
                         Utils.dismissProgressDialog();
                         if (response.body() != null) {
                             if (response.body().getStatus() == true) {
-                                //  HighwayPrefs.putBoolean(LoginRegisterActivity.this, Constants.LOGGED_IN, true);
-                                // HighwayPrefs.putString(LoginRegisterActivity.this, Constants.USERMOBILE, loginRegisterRequest.getMobile());
                                 Intent intent = new Intent(LoginRegisterActivity.this, MobileOtpVerificationActivity.class);
                                 HighwayPrefs.putString(LoginRegisterActivity.this, Constants.USERMOBILE, phone_number);
                                 startActivity(intent);

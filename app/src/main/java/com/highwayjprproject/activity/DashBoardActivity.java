@@ -1,4 +1,4 @@
-package com.highwayjprproject;
+package com.highwayjprproject.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,17 +15,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.highwayjprproject.R;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import utils.Constants;
-import utils.HighwayPrefs;
+
+import com.highwayjprproject.utils.Constants;
+import com.highwayjprproject.utils.HighwayPrefs;
 
 public class DashBoardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -37,8 +43,9 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
     private TextView tvName, tvMobileNo, tvSetting;
     private NavigationView navigationView;
     String userRole;
-    private MenuItem newBooking, myBooking, wallet, notification, rateCard, help, about, share, send,gallery;
+    private MenuItem newBooking, myBooking, wallet, notification, rateCard, help, about, share, send, gallery;
     private MenuItem item;
+    private Button btnLogOut;
 
 
     @Override
@@ -46,25 +53,29 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
 
-        dashBoardToolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(dashBoardToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, dashBoardToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
         nevigationInitView();
         updateNavViewHeader();
-        navAccoringRoleId();           // According RoleId Nevigation Icon
-
+        navAccoringRoleId();// According RoleId Nevigation Icon
+        setOnClickListenerOperation();
 
     }
 
     public void nevigationInitView() {
+
+        dashBoardToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(dashBoardToolbar);
+        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        btnLogOut = findViewById(R.id.btnLogout);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, dashBoardToolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+
         View headerView = navigationView.inflateHeaderView(R.layout.nav_header_dash_board);
         nevCircularUserImgView = headerView.findViewById(R.id.imageView);
         nevUserName = headerView.findViewById(R.id.userProfileName);
@@ -83,7 +94,6 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         share = menues.findItem(R.id.nav_share);
         send = menues.findItem(R.id.nav_send);
         gallery = menues.findItem(R.id.nav_gallery);
-
 
     }
 
@@ -137,7 +147,6 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 gallery.setVisible(false);
                 break;
 
-
             case "2":
                 newBooking.setVisible(true);
                 myBooking.setVisible(true);
@@ -188,9 +197,69 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        int id = menuItem.getItemId();
+        if (id == R.id.nav_new_booking) {
+            dashBoardToolbar.setTitle("New Booking");
 
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        return false;
+        } else if (id == R.id.nav_my_booking) {
+            dashBoardToolbar.setTitle("My Booking");
+
+        } else if (id == R.id.nav_wallet) {
+            dashBoardToolbar.setTitle("Wallet");
+
+        } else if (id == R.id.nav_notification) {
+            dashBoardToolbar.setTitle("Notification");
+
+        } else if (id == R.id.nav_help) {
+            dashBoardToolbar.setTitle("Help");
+
+        } else if (id == R.id.nav_about) {
+            dashBoardToolbar.setTitle("About Us");
+
+        } else if (id == R.id.nav_gallery) {
+            dashBoardToolbar.setTitle("Gallery");
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
+
+
+    private void replaceFragment(Fragment fragment) {
+        try {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            if (fragmentManager != null) {
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment, fragment, "");
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                fragmentTransaction.commitAllowingStateLoss();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void setOnClickListenerOperation() {
+        navigationView.setNavigationItemSelectedListener(this);
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // HighwayPrefs.clear(DashBoardActivity.this);
+                HighwayPrefs.putBoolean(getApplicationContext(), Constants.LoginCheck, false);
+                Intent intent = new Intent(DashBoardActivity.this, LoginRegisterActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+
+
 }

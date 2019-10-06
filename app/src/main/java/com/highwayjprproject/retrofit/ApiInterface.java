@@ -1,12 +1,12 @@
-package retrofit;
+package com.highwayjprproject.retrofit;
 
 
-import model.LoginRegisterRequest;
-import model.LoginRegisterResponse;
-import model.RegistrationDetailsRequest;
-import model.RegistrationDetailsResponse;
-import model.VerifyOtpRequest;
-import model.VerifyOtpResponse;
+import com.highwayjprproject.model.LoginRegisterRequest;
+import com.highwayjprproject.model.LoginRegisterResponse;
+import com.highwayjprproject.model.RegistrationDetailsRequest;
+import com.highwayjprproject.model.RegistrationDetailsResponse;
+import com.highwayjprproject.model.VerifyOtpRequest;
+import com.highwayjprproject.model.VerifyOtpResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;

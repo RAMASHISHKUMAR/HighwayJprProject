@@ -1,4 +1,4 @@
-package utils;
+package com.highwayjprproject.utils;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -129,9 +129,6 @@ public class Utils {
         return strDate;
 
     }
-
-
-
 
     public static String dateFormat(long timeStamp) {
 

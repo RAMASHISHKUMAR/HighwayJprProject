@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".DashBoardActivity"
+    tools:context=".activity.DashBoardActivity"
     tools:showIn="@layout/app_bar_dash_board">
 
     <FrameLayout
@@ -14,5 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

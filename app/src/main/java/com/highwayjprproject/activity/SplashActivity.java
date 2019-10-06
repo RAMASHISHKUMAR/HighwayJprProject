@@ -1,4 +1,4 @@
-package com.highwayjprproject;
+package com.highwayjprproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,8 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import utils.Constants;
-import utils.HighwayPrefs;
+import com.highwayjprproject.R;
+import com.highwayjprproject.utils.Constants;
+import com.highwayjprproject.utils.HighwayPrefs;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -28,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (HighwayPrefs.getBoolean(SplashActivity.this, Constants.LOGGED_IN)) {
-                    Intent i = new Intent(SplashActivity.this, LoginRegisterActivity.class);
+                    Intent i = new Intent(SplashActivity.this, DashBoardActivity.class);
                     startActivity(i);
                     finish();
                 } else {

@@ -17,7 +17,7 @@
     <string name="menu_wallet">Wallet</string>
     <string name="menu_notification">Notification</string>
     <string name="menu_Help">Help</string>
-    <string name="menu_About">About</string>
+    <string name="menu_About">About Us</string>
     <string name="menu_tool">Tool</string>
     <string name="menu_share">Share</string>
     <string name="name">User name</string>
@@ -68,7 +68,13 @@
     <string name="of_highway">Of Highway</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_newbooking_fragment">Hello new booking fragment</string>
+    <string name="hello_mybooking_fragment">Hello my booking fragment</string>
+    <string name="hello_wallet_fragment">Hello wallet fragment</string>
+    <string name="hello_notificaton_fragment">Hello notification fragment</string>
+    <string name="hello_ratecard_fragment">Hello rateCard fragment</string>
+    <string name="hello_help_fragment">Hello help fragment</string>
+    <string name="hello_about_fragment">Hello about fragment</string>
     <string name="permission_denied_explanation">Location access denied</string>
     <string name="settings">Enable Location</string>
     <string name="title_activity_dash_board">DashBoardActivity</string>
@@ -77,4 +83,7 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

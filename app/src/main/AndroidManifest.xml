@@ -27,14 +27,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegistrationDetailsActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.RegistrationDetailsActivity" android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".DashBoardActivity"
+            android:name=".activity.DashBoardActivity"
             android:label="@string/title_activity_dash_board"
             android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait"/>
-        <activity android:name=".MobileOtpVerificationActivity" android:screenOrientation="portrait" />
-        <activity android:name=".LoginRegisterActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".SplashActivity" android:screenOrientation="portrait">
+        <activity android:name=".activity.MobileOtpVerificationActivity" android:screenOrientation="portrait" />
+        <activity android:name=".activity.LoginRegisterActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.SplashActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

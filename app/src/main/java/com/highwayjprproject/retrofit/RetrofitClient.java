@@ -1,4 +1,4 @@
-package retrofit;
+package com.highwayjprproject.retrofit;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

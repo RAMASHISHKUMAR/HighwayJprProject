@@ -1,4 +1,4 @@
-package com.highwayjprproject;
+package com.highwayjprproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -15,15 +15,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import model.VerifyOtpRequest;
-import model.VerifyOtpResponse;
-import retrofit.RestClient;
+import com.highwayjprproject.R;
+import com.highwayjprproject.model.VerifyOtpRequest;
+import com.highwayjprproject.model.VerifyOtpResponse;
+import com.highwayjprproject.retrofit.RestClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import utils.Constants;
-import utils.HighwayPrefs;
-import utils.Utils;
+import com.highwayjprproject.utils.Constants;
+import com.highwayjprproject.utils.HighwayPrefs;
+import com.highwayjprproject.utils.Utils;
 
 public class MobileOtpVerificationActivity extends AppCompatActivity {
     private EditText verifyPin;
@@ -100,6 +101,7 @@ public class MobileOtpVerificationActivity extends AppCompatActivity {
         }
 
         if (check) {
+
             VerifyOtpRequest verifyOtpRequest = new VerifyOtpRequest();
             verifyOtpRequest.setOtp(otpNumber);
             verifyOtpRequest.setMobile(usermobileNumber);

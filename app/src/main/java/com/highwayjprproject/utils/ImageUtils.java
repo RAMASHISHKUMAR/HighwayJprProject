@@ -1,4 +1,4 @@
-package utils;
+package com.highwayjprproject.utils;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

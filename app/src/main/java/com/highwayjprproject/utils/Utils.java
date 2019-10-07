@@ -66,8 +66,7 @@ public class Utils {
         try {
             if (context != null) {
                 ConnectivityManager connectivityManager =
-                        (ConnectivityManager) context
-                                .getSystemService(Context.CONNECTIVITY_SERVICE);
+                        (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
                 return networkInfo != null && networkInfo.isConnected();
             }

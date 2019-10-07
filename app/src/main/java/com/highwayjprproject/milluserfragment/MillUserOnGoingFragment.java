@@ -1,27 +1,24 @@
-package com.highwayjprproject.fragment;
+package com.highwayjprproject.milluserfragment;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+
 import com.highwayjprproject.R;
 
-public class MyBookingCompletedFragment extends Fragment {
+public class MillUserOnGoingFragment extends Fragment {
 
-    private RecyclerView completedRecycler;
-    public MyBookingCompletedFragment() {
+    public MillUserOnGoingFragment() {
         // Required empty public constructor
     }
 
 
-    public static MyBookingCompletedFragment newInstance(String param1, String param2) {
-        MyBookingCompletedFragment fragment = new MyBookingCompletedFragment();
+    public static MillUserOnGoingFragment newInstance() {
+        MillUserOnGoingFragment fragment = new MillUserOnGoingFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -38,11 +35,9 @@ public class MyBookingCompletedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_my_booking_completed, container, false);
-
-        completedRecycler = view.findViewById(R.id.completedRecyclerView);
-        return view;
+        return inflater.inflate(R.layout.fragment_mill_user_on_going, container, false);
     }
+
 
 
     @Override
@@ -54,8 +49,6 @@ public class MyBookingCompletedFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-
     }
-
 
 }

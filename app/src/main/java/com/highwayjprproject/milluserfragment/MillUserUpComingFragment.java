@@ -1,31 +1,26 @@
-package com.highwayjprproject.fragment;
+package com.highwayjprproject.milluserfragment;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+
 import com.highwayjprproject.R;
 
 
-public class MyBookingPendingFragment extends Fragment {
-    private RecyclerView pendingRecycler;
+public class MillUserUpComingFragment extends Fragment {
 
-    public MyBookingPendingFragment() {
+    public MillUserUpComingFragment() {
         // Required empty public constructor
     }
 
 
-    public static MyBookingPendingFragment newInstance() {
-        MyBookingPendingFragment fragment = new MyBookingPendingFragment();
+    public static MillUserUpComingFragment newInstance() {
+        MillUserUpComingFragment fragment = new MillUserUpComingFragment();
         Bundle args = new Bundle();
-
         fragment.setArguments(args);
         return fragment;
     }
@@ -41,12 +36,8 @@ public class MyBookingPendingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_my_booking_pending, container, false);
-
-        pendingRecycler = view.findViewById(R.id.pendingRecyclerView);
-        return view;
+        return inflater.inflate(R.layout.fragment_mill_user_up_coming, container, false);
     }
-
 
 
     @Override

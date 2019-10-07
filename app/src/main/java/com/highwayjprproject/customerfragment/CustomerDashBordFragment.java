@@ -1,31 +1,30 @@
-package com.highwayjprproject.fragment;
+package com.highwayjprproject.customerfragment;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import com.google.android.material.tabs.TabLayout;
 import com.highwayjprproject.R;
-import com.highwayjprproject.adapter.MyBookingFragmentAdapter;
+import com.highwayjprproject.adapter.CustomerFragmentAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DashBordFragment extends Fragment {
+public class CustomerDashBordFragment extends Fragment {
     private TabLayout myBookingTabLayout;
     private ViewPager myBookingViewPager;
 
-    List<Fragment> fragmentList = new ArrayList<>();
+    List<Fragment> customerfragmentList = new ArrayList<>();
 
 
-    public static DashBordFragment newInstance() {
-        DashBordFragment fragment = new DashBordFragment();
+    public static CustomerDashBordFragment newInstance() {
+        CustomerDashBordFragment fragment = new CustomerDashBordFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -41,18 +40,19 @@ public class DashBordFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_dash_bord, container, false);
+        View view = inflater.inflate(R.layout.fragment_customer_dash_bord, container, false);
 
         myBookingTabLayout = view.findViewById(R.id.tabModeOfMyBooking);
         myBookingViewPager = view.findViewById(R.id.myBookingViewPager);
 
-        fragmentList.add(new MyBookingCancledFragment());
-        fragmentList.add(new MyBookingOnGoingFragment());
-        fragmentList.add(new MyBookingPendingFragment());
-        fragmentList.add(new MyBookingUpCommingFragment());
-        fragmentList.add(new MyBookingCompletedFragment());
+        customerfragmentList.add(new CustomerCancledFragment());
+        customerfragmentList.add(new CustomerOnGoingFragment());
+        customerfragmentList.add(new CustomerPendingFragment());
+        customerfragmentList.add(new CustomerUpCommingFragment());
+        customerfragmentList.add(new CustomerCompletedFragment());
 
-        MyBookingFragmentAdapter fragmentAdapter = new MyBookingFragmentAdapter(getActivity().getSupportFragmentManager(), fragmentList);
+        CustomerFragmentAdapter fragmentAdapter = new CustomerFragmentAdapter(getActivity().
+                getSupportFragmentManager(), customerfragmentList);
 
         myBookingViewPager.setAdapter(fragmentAdapter);
         myBookingTabLayout.setupWithViewPager(myBookingViewPager);

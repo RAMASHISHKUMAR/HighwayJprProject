@@ -18,14 +18,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.highwayjprproject.R;
-import com.highwayjprproject.fragment.DashBordFragment;
+import com.highwayjprproject.customerfragment.CustomerDashBordFragment;
+import com.highwayjprproject.driverfragment.DriverDashBoardFragment;
+import com.highwayjprproject.milluserfragment.MillUserDashBoardFragment;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -58,24 +57,23 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         updateNavViewHeader();
         navAccoringRoleId();// According RoleId Nevigation Icon
         setOnClickListenerOperation();
-
     }
 
-    public void nevigationInitView() {
 
+
+    public void nevigationInitView() {
         dashBoardToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(dashBoardToolbar);
         // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         btnLogOut = findViewById(R.id.btnLogout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, dashBoardToolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
 
         View headerView = navigationView.inflateHeaderView(R.layout.nav_header_dash_board);
         nevCircularUserImgView = headerView.findViewById(R.id.imageView);
@@ -84,7 +82,6 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
 
         // navigation menuItem
         Menu menues = navigationView.getMenu();
-
         newBooking = menues.findItem(R.id.nav_new_booking);
         myBooking = menues.findItem(R.id.nav_my_booking);
         wallet = menues.findItem(R.id.nav_wallet);
@@ -190,11 +187,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         return super.onOptionsItemSelected(item);
     }
 
-   /* @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
-    }*/
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -227,28 +220,27 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 dashBoardToolbar.setTitle("My Booking");
                 switch (userRole){
                     case "1":
-                        /*fragment = DashBordFragment.newInstance();
+                        /*fragment = CustomerDashBordFragment.newInstance();
                         replaceFragment(fragment);*/
                         break;
                     case "2":
-                        fragment = DashBordFragment.newInstance();
+                        fragment = MillUserDashBoardFragment.newInstance();
                         replaceFragment(fragment);
                         break;
                     case "3":
-                        fragment = DashBordFragment.newInstance();
+                        fragment = DriverDashBoardFragment.newInstance();
                         replaceFragment(fragment);
                         break;
                     case "4":
-                        fragment = DashBordFragment.newInstance();
+                        fragment = CustomerDashBordFragment.newInstance();
                         replaceFragment(fragment);
                         break;
                     case "5":
-                       /* fragment = DashBordFragment.newInstance();
-                        replaceFragment(fragment);*/
+                       /* fragment = CustomerDashBordFragment.newInstance();
+                          replaceFragment(fragment);*/
                         break;
                 }
                 break;
-
 
             case  R.id.nav_wallet:
                 dashBoardToolbar.setTitle("Wallet");

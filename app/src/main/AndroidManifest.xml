@@ -18,7 +18,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/highway_logo"
@@ -28,12 +27,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.RegistrationDetailsActivity" android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".activity.DashBoardActivity"
-            android:label="@string/title_activity_dash_board"
-            android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait"/>
         <activity android:name=".activity.MobileOtpVerificationActivity" android:screenOrientation="portrait" />
         <activity android:name=".activity.LoginRegisterActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.DashBoardActivity" android:screenOrientation="portrait"
+            android:label="@string/title_activity_dash_board"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".activity.SplashActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

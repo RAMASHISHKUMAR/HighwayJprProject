@@ -1,10 +1,9 @@
-package com.highwayjprproject.fragment;
+package com.highwayjprproject.driverfragment;
 
 import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,18 +12,14 @@ import android.view.ViewGroup;
 import com.highwayjprproject.R;
 
 
-public class MyBookingUpCommingFragment extends Fragment {
+public class DriverOnGoingFragment extends Fragment {
 
-    private RecyclerView upcomingRecycler;
-
-    public MyBookingUpCommingFragment() {
+    public DriverOnGoingFragment() {
         // Required empty public constructor
     }
 
-
-    // TODO: Rename and change types and number of parameters
-    public static MyBookingUpCommingFragment newInstance() {
-        MyBookingUpCommingFragment fragment = new MyBookingUpCommingFragment();
+       public static DriverOnGoingFragment newInstance() {
+        DriverOnGoingFragment fragment = new DriverOnGoingFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -34,16 +29,13 @@ public class MyBookingUpCommingFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
-        }
+             }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_my_booking_up_comming, container, false);
-        upcomingRecycler = view.findViewById(R.id.upcomingRecyclerView);
-        return view;
+        return inflater.inflate(R.layout.fragment_driver_on_going, container, false);
     }
 
 

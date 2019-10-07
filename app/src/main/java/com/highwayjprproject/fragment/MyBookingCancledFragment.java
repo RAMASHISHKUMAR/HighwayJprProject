@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,11 +12,17 @@ import android.view.ViewGroup;
 
 import com.highwayjprproject.R;
 
+public class MyBookingCancledFragment extends Fragment {
+    private RecyclerView cancleRecycler;
 
-public class WalletFragment extends Fragment {
 
-    public static WalletFragment newInstance() {
-        WalletFragment fragment = new WalletFragment();
+    public MyBookingCancledFragment() {
+        // Required empty public constructor
+    }
+
+
+    public static MyBookingCancledFragment newInstance(String param1, String param2) {
+        MyBookingCancledFragment fragment = new MyBookingCancledFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -32,8 +39,14 @@ public class WalletFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_wallet, container, false);
+        View view= inflater.inflate(R.layout.fragment_my_booking_cancled, container, false);
+
+
+        cancleRecycler = view.findViewById(R.id.Cancled_RecyclerView);
+       // prepareList();
+        return view;
     }
+
 
     @Override
     public void onAttach(Context context) {

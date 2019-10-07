@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +12,16 @@ import android.view.ViewGroup;
 
 import com.highwayjprproject.R;
 
-public class MyBookingFragment extends Fragment {
+public class MyBookingCompletedFragment extends Fragment {
 
-    public static MyBookingFragment newInstance() {
-        MyBookingFragment fragment = new MyBookingFragment();
+    private RecyclerView completedRecycler;
+    public MyBookingCompletedFragment() {
+        // Required empty public constructor
+    }
+
+
+    public static MyBookingCompletedFragment newInstance(String param1, String param2) {
+        MyBookingCompletedFragment fragment = new MyBookingCompletedFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -31,7 +38,10 @@ public class MyBookingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_booking, container, false);
+        View view = inflater.inflate(R.layout.fragment_my_booking_completed, container, false);
+
+        completedRecycler = view.findViewById(R.id.completedRecyclerView);
+        return view;
     }
 
 

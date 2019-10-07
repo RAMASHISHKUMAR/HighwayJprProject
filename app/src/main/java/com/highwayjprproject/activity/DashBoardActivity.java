@@ -25,6 +25,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.highwayjprproject.R;
+import com.highwayjprproject.fragment.DashBordFragment;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -189,40 +190,205 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+   /* @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
-    }
+    }*/
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Fragment fragment = null;
         int id = menuItem.getItemId();
-        if (id == R.id.nav_new_booking) {
-            dashBoardToolbar.setTitle("New Booking");
+//  1 admin  //  2 mill user   // 3  driver // // 4  customer   // 5 owner
+        switch (id){
+            case  R.id.nav_new_booking:
+                dashBoardToolbar.setTitle("New Booking");
+               switch (userRole){
+                   case "1":
 
-        } else if (id == R.id.nav_my_booking) {
-            dashBoardToolbar.setTitle("My Booking");
+                       break;
+                   case "2":
 
-        } else if (id == R.id.nav_wallet) {
-            dashBoardToolbar.setTitle("Wallet");
+                       break;
+                   case "3":
 
-        } else if (id == R.id.nav_notification) {
-            dashBoardToolbar.setTitle("Notification");
+                       break;
+                   case "4":
 
-        } else if (id == R.id.nav_help) {
-            dashBoardToolbar.setTitle("Help");
+                       break;
+                   case "5":
 
-        } else if (id == R.id.nav_about) {
-            dashBoardToolbar.setTitle("About Us");
+                      break;
+               }
+                break;
 
-        } else if (id == R.id.nav_gallery) {
-            dashBoardToolbar.setTitle("Gallery");
+            case  R.id.nav_my_booking:
+                dashBoardToolbar.setTitle("My Booking");
+                switch (userRole){
+                    case "1":
+                        /*fragment = DashBordFragment.newInstance();
+                        replaceFragment(fragment);*/
+                        break;
+                    case "2":
+                        fragment = DashBordFragment.newInstance();
+                        replaceFragment(fragment);
+                        break;
+                    case "3":
+                        fragment = DashBordFragment.newInstance();
+                        replaceFragment(fragment);
+                        break;
+                    case "4":
+                        fragment = DashBordFragment.newInstance();
+                        replaceFragment(fragment);
+                        break;
+                    case "5":
+                       /* fragment = DashBordFragment.newInstance();
+                        replaceFragment(fragment);*/
+                        break;
+                }
+                break;
 
-        } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+            case  R.id.nav_wallet:
+                dashBoardToolbar.setTitle("Wallet");
+                switch (userRole){
+                    case "1":
+                        break;
+                    case "2":
 
+                        break;
+                    case "3":
+
+                        break;
+                    case "4":
+
+                        break;
+                    case "5":
+
+                        break;
+                }
+                break;
+
+            case  R.id.nav_notification:
+                dashBoardToolbar.setTitle("Notification");
+                switch (userRole){
+                    case "1":
+                        break;
+                    case "2":
+
+                        break;
+                    case "3":
+
+                        break;
+                    case "4":
+
+                        break;
+                    case "5":
+
+                        break;
+                }
+                break;
+
+            case  R.id.nav_rate_card:
+                dashBoardToolbar.setTitle("Rate Card");
+                switch (userRole){
+                    case "1":
+                        break;
+                    case "2":
+
+                        break;
+                    case "3":
+
+                        break;
+                    case "4":
+
+                        break;
+                    case "5":
+
+                        break;
+                }
+                break;
+
+            case  R.id.nav_help:
+                dashBoardToolbar.setTitle("Help");
+                switch (userRole){
+                    case "1":
+                        break;
+                    case "2":
+
+                        break;
+                    case "3":
+
+                        break;
+                    case "4":
+
+                        break;
+                    case "5":
+
+                        break;
+                }
+                break;
+
+            case  R.id.nav_about:
+                dashBoardToolbar.setTitle("About");
+                switch (userRole){
+                    case "1":
+                        break;
+                    case "2":
+
+                        break;
+                    case "3":
+
+                        break;
+                    case "4":
+
+                        break;
+                    case "5":
+
+                        break;
+                }
+                break;
+
+            case  R.id.nav_share:
+                dashBoardToolbar.setTitle("Share");
+                switch (userRole){
+                    case "1":
+                        break;
+                    case "2":
+
+                        break;
+                    case "3":
+
+                        break;
+                    case "4":
+
+                        break;
+                    case "5":
+
+                        break;
+                }
+                break;
+
+            case  R.id.nav_send:
+                dashBoardToolbar.setTitle("Send");
+                switch (userRole){
+                    case "1":
+                        break;
+                    case "2":
+
+                        break;
+                    case "3":
+
+                        break;
+                    case "4":
+
+                        break;
+                    case "5":
+
+                        break;
+                }
+                break;
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

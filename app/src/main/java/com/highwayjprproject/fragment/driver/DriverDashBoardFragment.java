@@ -1,4 +1,4 @@
-package com.highwayjprproject.driverfragment;
+package com.highwayjprproject.fragment.driver;
 
 import android.content.Context;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.highwayjprproject.customerfragment;
+package com.highwayjprproject.fragment.customer;
 
 import android.content.Context;
 import android.os.Bundle;

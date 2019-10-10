@@ -1,25 +1,25 @@
-package com.highwayjprproject.driverfragment;
+package com.highwayjprproject.fragment.driver;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+
 import com.highwayjprproject.R;
 
 
-public class DriverOnGoingFragment extends Fragment {
+public class DriverCompletedFragment extends Fragment {
 
-    public DriverOnGoingFragment() {
+    public DriverCompletedFragment() {
         // Required empty public constructor
     }
 
-       public static DriverOnGoingFragment newInstance() {
-        DriverOnGoingFragment fragment = new DriverOnGoingFragment();
+
+    public static DriverCompletedFragment newInstance() {
+        DriverCompletedFragment fragment = new DriverCompletedFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -29,13 +29,14 @@ public class DriverOnGoingFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-             }
+
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_driver_on_going, container, false);
+        return inflater.inflate(R.layout.fragment_driver_completed, container, false);
     }
 
 

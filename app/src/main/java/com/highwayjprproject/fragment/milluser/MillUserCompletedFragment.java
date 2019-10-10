@@ -1,4 +1,4 @@
-package com.highwayjprproject.customerfragment;
+package com.highwayjprproject.fragment.milluser;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,23 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.highwayjprproject.R;
 
 
-public class CustomerPendingFragment extends Fragment {
-    private RecyclerView pendingRecycler;
+public class MillUserCompletedFragment extends Fragment {
 
-    public CustomerPendingFragment() {
+    public MillUserCompletedFragment() {
         // Required empty public constructor
     }
 
-
-    public static CustomerPendingFragment newInstance() {
-        CustomerPendingFragment fragment = new CustomerPendingFragment();
+    public static MillUserCompletedFragment newInstance(String param1, String param2) {
+        MillUserCompletedFragment fragment = new MillUserCompletedFragment();
         Bundle args = new Bundle();
-
         fragment.setArguments(args);
         return fragment;
     }
@@ -39,13 +35,8 @@ public class CustomerPendingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_customer_pending, container, false);
-
-        pendingRecycler = view.findViewById(R.id.pendingRecyclerView);
-        return view;
+        return inflater.inflate(R.layout.fragment_mill_user_completed, container, false);
     }
-
-
 
     @Override
     public void onAttach(Context context) {
@@ -56,6 +47,7 @@ public class CustomerPendingFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+
     }
 
 

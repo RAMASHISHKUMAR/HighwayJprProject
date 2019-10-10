@@ -6,11 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.highwayjprproject.driverfragment.DriverCancledFragment;
-import com.highwayjprproject.driverfragment.DriverCompletedFragment;
-import com.highwayjprproject.driverfragment.DriverOnGoingFragment;
-import com.highwayjprproject.driverfragment.DriverPendingFragment;
-import com.highwayjprproject.driverfragment.DriverUpComingFragment;
+import com.highwayjprproject.fragment.driver.DriverCancledFragment;
+import com.highwayjprproject.fragment.driver.DriverCompletedFragment;
+import com.highwayjprproject.fragment.driver.DriverOnGoingFragment;
+import com.highwayjprproject.fragment.driver.DriverPendingFragment;
+import com.highwayjprproject.fragment.driver.DriverUpComingFragment;
 import java.util.List;
 
 public class DriverFragmentAdapter  extends FragmentPagerAdapter {

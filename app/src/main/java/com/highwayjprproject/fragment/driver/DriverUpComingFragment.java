@@ -1,4 +1,4 @@
-package com.highwayjprproject.customerfragment;
+package com.highwayjprproject.fragment.driver;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,21 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.highwayjprproject.R;
 
-public class CustomerCompletedFragment extends Fragment {
+public class DriverUpComingFragment extends Fragment {
 
-    private RecyclerView completedRecycler;
-    public CustomerCompletedFragment() {
+    public DriverUpComingFragment() {
         // Required empty public constructor
     }
 
-
-    public static CustomerCompletedFragment newInstance(String param1, String param2) {
-        CustomerCompletedFragment fragment = new CustomerCompletedFragment();
+    public static DriverUpComingFragment newInstance() {
+        DriverUpComingFragment fragment = new DriverUpComingFragment();
         Bundle args = new Bundle();
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -37,10 +35,7 @@ public class CustomerCompletedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_customer_completed, container, false);
-
-        completedRecycler = view.findViewById(R.id.completedRecyclerView);
-        return view;
+        return inflater.inflate(R.layout.fragment_driver_up_coming, container, false);
     }
 
 
@@ -53,7 +48,6 @@ public class CustomerCompletedFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-
     }
 
 

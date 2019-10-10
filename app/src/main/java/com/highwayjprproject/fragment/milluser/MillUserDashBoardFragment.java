@@ -1,4 +1,4 @@
-package com.highwayjprproject.customerfragment;
+package com.highwayjprproject.fragment.milluser;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,20 +11,24 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.highwayjprproject.R;
-import com.highwayjprproject.adapter.CustomerFragmentAdapter;
+import com.highwayjprproject.adapter.MillUserFragmentAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerDashBordFragment extends Fragment {
-    private TabLayout myBookingTabLayout;
-    private ViewPager myBookingViewPager;
+public class MillUserDashBoardFragment extends Fragment {
 
-    List<Fragment> customerfragmentList = new ArrayList<>();
+    private TabLayout millUsertabMode;
+    private ViewPager millUserViewPager;
 
+    List<Fragment>milluserfragmentlist = new ArrayList<>();
 
-    public static CustomerDashBordFragment newInstance() {
-        CustomerDashBordFragment fragment = new CustomerDashBordFragment();
+    public MillUserDashBoardFragment() {
+        // Required empty public constructor
+    }
+
+    public static MillUserDashBoardFragment newInstance() {
+        MillUserDashBoardFragment fragment = new MillUserDashBoardFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -34,30 +38,30 @@ public class CustomerDashBordFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_customer_dash_bord, container, false);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_mill_user_dash_board, container, false);
 
-        myBookingTabLayout = view.findViewById(R.id.tabModeOfMyBooking);
-        myBookingViewPager = view.findViewById(R.id.myBookingViewPager);
+        millUserViewPager = view.findViewById(R.id.millUserViewPager);
+        millUsertabMode= view.findViewById(R.id.millUsertabMode);
 
-        customerfragmentList.add(new CustomerCancledFragment());
-        customerfragmentList.add(new CustomerOnGoingFragment());
-        customerfragmentList.add(new CustomerPendingFragment());
-        customerfragmentList.add(new CustomerUpCommingFragment());
-        customerfragmentList.add(new CustomerCompletedFragment());
+        milluserfragmentlist.add(new MillUserUpComingFragment());
+        milluserfragmentlist.add(new MillUserOnGoingFragment());
+        milluserfragmentlist.add(new MillUserCompletedFragment());
+        milluserfragmentlist.add(new MillUserCancledFragment());
+        milluserfragmentlist.add(new MillUserPendingFragment());
 
-        CustomerFragmentAdapter fragmentAdapter = new CustomerFragmentAdapter(getActivity().
-                getSupportFragmentManager(), customerfragmentList);
+        MillUserFragmentAdapter millUserFragmentAdapter = new MillUserFragmentAdapter(getActivity().
+                getSupportFragmentManager(),milluserfragmentlist);
 
-        myBookingViewPager.setAdapter(fragmentAdapter);
-        myBookingTabLayout.setupWithViewPager(myBookingViewPager);
+        millUserViewPager.setAdapter(millUserFragmentAdapter);
+        millUsertabMode.setupWithViewPager(millUserViewPager);
 
-        myBookingTabLayout.setOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener() {
+        millUsertabMode.setOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 
@@ -73,7 +77,7 @@ public class CustomerDashBordFragment extends Fragment {
 
             }
         });
-        myBookingViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        millUserViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -89,9 +93,9 @@ public class CustomerDashBordFragment extends Fragment {
 
             }
         });
-
         return view;
     }
+
 
 
     @Override

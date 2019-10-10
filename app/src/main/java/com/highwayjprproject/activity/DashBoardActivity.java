@@ -22,9 +22,9 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import com.google.android.material.navigation.NavigationView;
 import com.highwayjprproject.R;
-import com.highwayjprproject.customerfragment.CustomerDashBordFragment;
-import com.highwayjprproject.driverfragment.DriverDashBoardFragment;
-import com.highwayjprproject.milluserfragment.MillUserDashBoardFragment;
+import com.highwayjprproject.fragment.customer.CustomerDashBordFragment;
+import com.highwayjprproject.fragment.driver.DriverDashBoardFragment;
+import com.highwayjprproject.fragment.milluser.MillUserDashBoardFragment;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;

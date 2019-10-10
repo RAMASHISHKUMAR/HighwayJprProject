@@ -6,11 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.highwayjprproject.customerfragment.CustomerCancledFragment;
-import com.highwayjprproject.customerfragment.CustomerCompletedFragment;
-import com.highwayjprproject.customerfragment.CustomerOnGoingFragment;
-import com.highwayjprproject.customerfragment.CustomerPendingFragment;
-import com.highwayjprproject.customerfragment.CustomerUpCommingFragment;
+import com.highwayjprproject.fragment.customer.CustomerCancledFragment;
+import com.highwayjprproject.fragment.customer.CustomerCompletedFragment;
+import com.highwayjprproject.fragment.customer.CustomerOnGoingFragment;
+import com.highwayjprproject.fragment.customer.CustomerPendingFragment;
+import com.highwayjprproject.fragment.customer.CustomerUpCommingFragment;
 
 import java.util.List;
 

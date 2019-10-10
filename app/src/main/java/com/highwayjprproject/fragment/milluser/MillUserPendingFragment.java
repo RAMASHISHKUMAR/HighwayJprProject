@@ -1,4 +1,4 @@
-package com.highwayjprproject.milluserfragment;
+package com.highwayjprproject.fragment.milluser;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,15 +10,16 @@ import androidx.fragment.app.Fragment;
 
 import com.highwayjprproject.R;
 
-public class MillUserCancledFragment extends Fragment {
 
-    public MillUserCancledFragment() {
+public class MillUserPendingFragment extends Fragment {
+
+    public MillUserPendingFragment() {
         // Required empty public constructor
     }
 
 
-    public static MillUserCancledFragment newInstance() {
-        MillUserCancledFragment fragment = new MillUserCancledFragment();
+    public static MillUserPendingFragment newInstance() {
+        MillUserPendingFragment fragment = new MillUserPendingFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -35,8 +36,9 @@ public class MillUserCancledFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mill_user_cancled, container, false);
+        return inflater.inflate(R.layout.fragment_mill_user_pending, container, false);
     }
+
 
 
     @Override
@@ -48,6 +50,7 @@ public class MillUserCancledFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+
     }
 
 

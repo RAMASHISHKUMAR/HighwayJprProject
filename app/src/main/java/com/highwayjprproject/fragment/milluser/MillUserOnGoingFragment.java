@@ -1,4 +1,4 @@
-package com.highwayjprproject.driverfragment;
+package com.highwayjprproject.fragment.milluser;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,17 +10,15 @@ import androidx.fragment.app.Fragment;
 
 import com.highwayjprproject.R;
 
+public class MillUserOnGoingFragment extends Fragment {
 
-public class DriverPendingFragment extends Fragment {
-
-
-    public DriverPendingFragment() {
+    public MillUserOnGoingFragment() {
         // Required empty public constructor
     }
 
 
-    public static DriverPendingFragment newInstance() {
-        DriverPendingFragment fragment = new DriverPendingFragment();
+    public static MillUserOnGoingFragment newInstance() {
+        MillUserOnGoingFragment fragment = new MillUserOnGoingFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -37,7 +35,7 @@ public class DriverPendingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_driver_pending, container, false);
+        return inflater.inflate(R.layout.fragment_mill_user_on_going, container, false);
     }
 
 
@@ -52,6 +50,5 @@ public class DriverPendingFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
-
 
 }

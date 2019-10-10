@@ -1,4 +1,4 @@
-package com.highwayjprproject.customerfragment;
+package com.highwayjprproject.fragment.customer;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,19 +11,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.highwayjprproject.R;
 
+public class CustomerCancledFragment extends Fragment {
+    private RecyclerView cancleRecycler;
 
-public class CustomerUpCommingFragment extends Fragment {
 
-    private RecyclerView upcomingRecycler;
-
-    public CustomerUpCommingFragment() {
+    public CustomerCancledFragment() {
         // Required empty public constructor
     }
 
 
-    // TODO: Rename and change types and number of parameters
-    public static CustomerUpCommingFragment newInstance() {
-        CustomerUpCommingFragment fragment = new CustomerUpCommingFragment();
+    public static CustomerCancledFragment newInstance(String param1, String param2) {
+        CustomerCancledFragment fragment = new CustomerCancledFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -40,11 +38,12 @@ public class CustomerUpCommingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_customer_comming, container, false);
-        upcomingRecycler = view.findViewById(R.id.upcomingRecyclerView);
+        View view= inflater.inflate(R.layout.fragment_customer_cancled, container, false);
+
+        cancleRecycler = view.findViewById(R.id.Cancled_RecyclerView);
+       // prepareList();
         return view;
     }
-
 
 
     @Override

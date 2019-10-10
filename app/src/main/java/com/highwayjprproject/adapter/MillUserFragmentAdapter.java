@@ -6,11 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.highwayjprproject.milluserfragment.MillUserCancledFragment;
-import com.highwayjprproject.milluserfragment.MillUserCompletedFragment;
-import com.highwayjprproject.milluserfragment.MillUserOnGoingFragment;
-import com.highwayjprproject.milluserfragment.MillUserPendingFragment;
-import com.highwayjprproject.milluserfragment.MillUserUpComingFragment;
+import com.highwayjprproject.fragment.milluser.MillUserCancledFragment;
+import com.highwayjprproject.fragment.milluser.MillUserCompletedFragment;
+import com.highwayjprproject.fragment.milluser.MillUserOnGoingFragment;
+import com.highwayjprproject.fragment.milluser.MillUserPendingFragment;
+import com.highwayjprproject.fragment.milluser.MillUserUpComingFragment;
 
 import java.util.List;
 

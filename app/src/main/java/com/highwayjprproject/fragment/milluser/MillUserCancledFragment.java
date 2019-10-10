@@ -1,4 +1,4 @@
-package com.highwayjprproject.driverfragment;
+package com.highwayjprproject.fragment.milluser;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,16 +10,15 @@ import androidx.fragment.app.Fragment;
 
 import com.highwayjprproject.R;
 
+public class MillUserCancledFragment extends Fragment {
 
-public class DriverCompletedFragment extends Fragment {
-
-    public DriverCompletedFragment() {
+    public MillUserCancledFragment() {
         // Required empty public constructor
     }
 
 
-    public static DriverCompletedFragment newInstance() {
-        DriverCompletedFragment fragment = new DriverCompletedFragment();
+    public static MillUserCancledFragment newInstance() {
+        MillUserCancledFragment fragment = new MillUserCancledFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -36,9 +35,8 @@ public class DriverCompletedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_driver_completed, container, false);
+        return inflater.inflate(R.layout.fragment_mill_user_cancled, container, false);
     }
-
 
 
     @Override

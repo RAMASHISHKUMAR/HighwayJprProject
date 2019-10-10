@@ -1,4 +1,4 @@
-package com.highwayjprproject.driverfragment;
+package com.highwayjprproject.fragment.driver;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,15 +11,16 @@ import androidx.fragment.app.Fragment;
 import com.highwayjprproject.R;
 
 
-public class DriverCancledFragment extends Fragment {
+public class DriverPendingFragment extends Fragment {
 
 
-    public DriverCancledFragment() {
+    public DriverPendingFragment() {
         // Required empty public constructor
     }
 
-    public static DriverCancledFragment newInstance() {
-        DriverCancledFragment fragment = new DriverCancledFragment();
+
+    public static DriverPendingFragment newInstance() {
+        DriverPendingFragment fragment = new DriverPendingFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -36,8 +37,10 @@ public class DriverCancledFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_driver_cancled, container, false);
+        return inflater.inflate(R.layout.fragment_driver_pending, container, false);
     }
+
+
 
     @Override
     public void onAttach(Context context) {

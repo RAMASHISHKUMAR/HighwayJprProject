@@ -56,7 +56,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         nevigationInitView();
         updateNavViewHeader();
         navAccoringRoleId();// According RoleId Nevigation Icon
-        setOnClickListenerOperation();
+        //setOnClickListenerOperation();
     }
 
 
@@ -66,7 +66,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         setSupportActionBar(dashBoardToolbar);
         // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         navigationView = findViewById(R.id.nav_view);
-        btnLogOut = findViewById(R.id.btnLogout);
+        //btnLogOut = findViewById(R.id.btnLogout);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -404,7 +404,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
     }
 
 
-    public void setOnClickListenerOperation() {
+    /*public void setOnClickListenerOperation() {
         navigationView.setNavigationItemSelectedListener(this);
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -418,6 +418,6 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
             }
         });
     }
-
+*/
 
 }

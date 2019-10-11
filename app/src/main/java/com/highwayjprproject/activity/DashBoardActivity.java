@@ -43,7 +43,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
     private TextView tvName, tvMobileNo, tvSetting;
     private NavigationView navigationView;
     String userRole;
-    private MenuItem newBooking, myBooking, wallet, notification, rateCard, help, about, share, send, gallery;
+    private MenuItem newBooking, myBooking, wallet, notification, rateCard, help, about, share, send, gallery,logout;
     private MenuItem item;
     private Button btnLogOut;
 
@@ -92,6 +92,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         share = menues.findItem(R.id.nav_share);
         send = menues.findItem(R.id.nav_send);
         gallery = menues.findItem(R.id.nav_gallery);
+        logout = menues.findItem(R.id.nav_logout);
 
     }
 
@@ -130,6 +131,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 share.setVisible(true);
                 send.setVisible(true);
                 gallery.setVisible(false);
+                logout.setVisible(true);
                 break;
 
             case "3":
@@ -143,6 +145,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 share.setVisible(false);
                 send.setVisible(false);
                 gallery.setVisible(false);
+                logout.setVisible(true);
                 break;
 
             case "2":
@@ -156,6 +159,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 share.setVisible(true);
                 send.setVisible(true);
                 gallery.setVisible(true);
+                logout.setVisible(true);
                 break;
         }
 
@@ -381,6 +385,14 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                         break;
                 }
                 break;
+
+                case R.id.nav_logout:
+                    switch (userRole){
+
+                    }
+
+
+
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

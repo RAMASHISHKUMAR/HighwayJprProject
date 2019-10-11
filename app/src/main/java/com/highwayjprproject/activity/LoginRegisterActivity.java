@@ -47,7 +47,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
     }
 
     private boolean validateInput() {
-        boolean check = false;
+        boolean check = true;
 
         phone_number = userPhoneNo.getText().toString();
 

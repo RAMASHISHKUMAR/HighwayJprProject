@@ -148,7 +148,6 @@
                     app:pinLineStrokeSelected="2dp"
                     app:pinTextBottomPadding="4dp" />
 
-
             </LinearLayout>
 
 

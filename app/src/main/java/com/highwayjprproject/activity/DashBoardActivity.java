@@ -387,12 +387,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 break;
 
                 case R.id.nav_logout:
-                    switch (userRole){
-
-                    }
-
-
-
+                    logOut();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -415,21 +410,12 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         }
     }
 
+    public void logOut() {
 
-    /*public void setOnClickListenerOperation() {
-        navigationView.setNavigationItemSelectedListener(this);
-        btnLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                // HighwayPrefs.clear(DashBoardActivity.this);
                 HighwayPrefs.putBoolean(getApplicationContext(), Constants.LoginCheck, false);
                 Intent intent = new Intent(DashBoardActivity.this, LoginRegisterActivity.class);
                 startActivity(intent);
-                finish();
-            }
-        });
+
     }
-*/
 
 }

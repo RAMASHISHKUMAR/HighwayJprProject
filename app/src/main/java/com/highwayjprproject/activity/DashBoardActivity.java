@@ -43,7 +43,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
     private TextView tvName, tvMobileNo, tvSetting;
     private NavigationView navigationView;
     String userRole;
-    private MenuItem newBooking, myBooking, wallet, notification, rateCard, help, about, share, send, gallery;
+    private MenuItem newBooking, myBooking, wallet, notification, rateCard, help, about, share, send, gallery,logout;
     private MenuItem item;
     private Button btnLogOut;
 
@@ -56,7 +56,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         nevigationInitView();
         updateNavViewHeader();
         navAccoringRoleId();// According RoleId Nevigation Icon
-        setOnClickListenerOperation();
+        //setOnClickListenerOperation();
     }
 
 
@@ -66,7 +66,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         setSupportActionBar(dashBoardToolbar);
         // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         navigationView = findViewById(R.id.nav_view);
-        btnLogOut = findViewById(R.id.btnLogout);
+        /*btnLogOut = findViewById(R.id.btnLogout);*/
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -80,6 +80,8 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         nevUserName = headerView.findViewById(R.id.userProfileName);
         nevUserMobNo = headerView.findViewById(R.id.userMobileNo);
 
+
+
         // navigation menuItem
         Menu menues = navigationView.getMenu();
         newBooking = menues.findItem(R.id.nav_new_booking);
@@ -92,6 +94,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         share = menues.findItem(R.id.nav_share);
         send = menues.findItem(R.id.nav_send);
         gallery = menues.findItem(R.id.nav_gallery);
+        logout=menues.findItem(R.id.nav_logout);
 
     }
 
@@ -116,6 +119,9 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         }
     }
 
+
+
+
     public void navAccoringRoleId() {
         userRole = HighwayPrefs.getString(getApplicationContext(), Constants.ROLEID);
         switch (userRole) {
@@ -130,6 +136,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 share.setVisible(true);
                 send.setVisible(true);
                 gallery.setVisible(false);
+                logout.setVisible(true);
                 break;
 
             case "3":
@@ -143,6 +150,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 share.setVisible(false);
                 send.setVisible(false);
                 gallery.setVisible(false);
+                logout.setVisible(true);
                 break;
 
             case "2":
@@ -156,6 +164,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 share.setVisible(true);
                 send.setVisible(true);
                 gallery.setVisible(true);
+                logout.setVisible(true);
                 break;
         }
 
@@ -184,15 +193,23 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         if (id == R.id.action_settings) {
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
-
 
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Fragment fragment = null;
         int id = menuItem.getItemId();
+
+        if (id==R.id.nav_logout){
+            HighwayPrefs.putBoolean(getApplicationContext(), Constants.LoginCheck, false);
+            Intent intent = new Intent(DashBoardActivity.this, LoginRegisterActivity.class);
+            startActivity(intent);
+            finish();
+
+        }
 //  1 admin  //  2 mill user   // 3  driver // // 4  customer   // 5 owner
         switch (id){
             case  R.id.nav_new_booking:
@@ -404,7 +421,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
     }
 
 
-    public void setOnClickListenerOperation() {
+  /*  public void setOnClckListenerOperation() {
         navigationView.setNavigationItemSelectedListener(this);
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -417,7 +434,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 finish();
             }
         });
-    }
+    }*/
 
 
 }

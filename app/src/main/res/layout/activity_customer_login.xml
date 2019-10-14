@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.LoginRegisterActivity">
+    tools:context=".activity.CustomerLoginActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="@dimen/margin_Top80"
-                android:text="Login/Register"
+                android:text="Customer Login Register "
                 android:textColor="@color/black"
                 android:textSize="@dimen/_16dp"
                 android:textStyle="bold" />

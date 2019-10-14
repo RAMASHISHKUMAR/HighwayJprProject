@@ -30,11 +30,11 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (HighwayPrefs.getBoolean(SplashActivity.this, Constants.LOGGED_IN)) {
-                    Intent i = new Intent(SplashActivity.this, LoginRegisterActivity.class);
+                    Intent i = new Intent(SplashActivity.this, LoginOptionActivity.class);
                     startActivity(i);
                     finish();
                 } else {
-                    Intent i = new Intent(SplashActivity.this, LoginRegisterActivity.class);
+                    Intent i = new Intent(SplashActivity.this, LoginOptionActivity.class);
                     startActivity(i);
                     finish();
                 }

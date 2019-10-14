@@ -413,7 +413,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
     public void logOut() {
 
                 HighwayPrefs.putBoolean(getApplicationContext(), Constants.LoginCheck, false);
-                Intent intent = new Intent(DashBoardActivity.this, LoginRegisterActivity.class);
+                Intent intent = new Intent(DashBoardActivity.this, CustomerLoginActivity.class);
                 startActivity(intent);
 
     }

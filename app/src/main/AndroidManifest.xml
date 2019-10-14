@@ -26,6 +26,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity.OwnerLoginActivity"></activity>
+        <activity android:name=".activity.MillerLoginActivity" />
+        <activity android:name=".activity.DriverLoginActivity" />
+        <activity android:name=".activity.LoginOptionActivity" />
         <activity
             android:name=".fragment.map.BookingMapsActivity"
             android:label="@string/title_activity_booking_maps"
@@ -37,7 +41,7 @@
             android:name=".activity.MobileOtpVerificationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.LoginRegisterActivity"
+            android:name=".activity.CustomerLoginActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.DashBoardActivity"

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_primary"
+    android:orientation="vertical"
+    tools:context=".activity.LoginOptionActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/project_yellow_color">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="@dimen/margin_100"
+            android:layout_height="@dimen/margin_100"
+            android:src="@drawable/highway_logo"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <RadioButton
+                android:id="@+id/customerRadioBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10dp"
+                android:textColor="@color/black"
+                android:text=" Customer "
+                android:onClick="onUserRadioBtnClicked"
+                tools:ignore="OnClick" />
+
+            <RadioButton
+                android:id="@+id/driverRadioBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10dp"
+                android:textColor="@color/black"
+                android:text=" Driver "
+                android:onClick="onUserRadioBtnClicked"
+                tools:ignore="OnClick" />
+
+            <RadioButton
+                android:id="@+id/millerRadioBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10dp"
+                android:text=" Miller "
+                android:onClick="onUserRadioBtnClicked"
+                tools:ignore="OnClick" />
+
+            <RadioButton
+                android:id="@+id/ownerRadioBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10dp"
+                android:text=" Owner "
+                android:textColor="@color/Black"
+                android:onClick="onUserRadioBtnClicked"
+                tools:ignore="OnClick" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_30"
+            android:background="@drawable/btn_shape_draw"
+            android:textColor="@color/project_yellow_color"
+            android:paddingLeft="@dimen/padding_left_50"
+            android:paddingRight="@dimen/padding_right_50"
+            android:text=" Next "/>
+    </LinearLayout>
+
+
+</LinearLayout>

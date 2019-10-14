@@ -63,7 +63,7 @@ public class MobileOtpVerificationActivity extends AppCompatActivity {
         backImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MobileOtpVerificationActivity.this, LoginRegisterActivity.class);
+                Intent intent = new Intent(MobileOtpVerificationActivity.this, CustomerLoginActivity.class);
                 startActivity(intent);
                 finish();
             }

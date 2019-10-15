@@ -40,16 +40,14 @@ public class DriverFragmentAdapter  extends FragmentPagerAdapter {
             return "UPCOMING";
         }else if (driverfragmentlist.get(position)instanceof DriverOnGoingFragment){
             return "ONGOING";
+        }else if (driverfragmentlist.get(position)instanceof DriverPendingFragment){
+            return "PENDING";
         }else if (driverfragmentlist.get(position)instanceof DriverCompletedFragment){
             return "COMPLETED";
-        }else if (driverfragmentlist.get(position)instanceof DriverCancledFragment){
+        }if (driverfragmentlist.get(position)instanceof DriverCancledFragment){
             return "CANCLED";
-        }if (driverfragmentlist.get(position)instanceof DriverPendingFragment){
-            return "PENDING";
         }
         return "";
-
-
         //return super.getPageTitle(position);
     }
 }

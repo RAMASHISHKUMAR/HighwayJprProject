@@ -41,12 +41,12 @@ public class MillUserFragmentAdapter extends FragmentPagerAdapter {
             return "UPCOMING";
         }else if (milluserfragment.get(position)instanceof MillUserOnGoingFragment){
             return "ONGOING";
-        }else if (milluserfragment.get(position)instanceof MillUserCompletedFragment){
-            return "COMPLETED";
-        }else if (milluserfragment.get(position)instanceof MillUserCancledFragment){
-            return "CANCLED";
-        }if (milluserfragment.get(position)instanceof MillUserPendingFragment){
+        }else if (milluserfragment.get(position)instanceof MillUserPendingFragment){
             return "PENDING";
+        }else if(milluserfragment.get(position)instanceof MillUserCompletedFragment){
+            return "COMPLETED";
+        }if (milluserfragment.get(position)instanceof MillUserCancledFragment){
+            return "CANCLED";
         }
         return "";
         //return super.getPageTitle(position);

@@ -45,11 +45,11 @@ public class CustomerDashBordFragment extends Fragment {
         myBookingTabLayout = view.findViewById(R.id.tabModeOfMyBooking);
         myBookingViewPager = view.findViewById(R.id.myBookingViewPager);
 
-        customerfragmentList.add(new CustomerCancledFragment());
+        customerfragmentList.add(new CustomerUpCommingFragment());
         customerfragmentList.add(new CustomerOnGoingFragment());
         customerfragmentList.add(new CustomerPendingFragment());
-        customerfragmentList.add(new CustomerUpCommingFragment());
         customerfragmentList.add(new CustomerCompletedFragment());
+        customerfragmentList.add(new CustomerCancledFragment());
 
         CustomerFragmentAdapter fragmentAdapter = new CustomerFragmentAdapter(getActivity().
                 getSupportFragmentManager(), customerfragmentList);

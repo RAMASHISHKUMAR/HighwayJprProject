@@ -1,7 +1,5 @@
-package com.highwayjprproject.fragment.map;
+package com.highwayjprproject.map;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;

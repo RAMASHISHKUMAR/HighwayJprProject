@@ -53,7 +53,7 @@ public class MillUserDashBoardFragment extends Fragment {
         milluserfragmentlist.add(new MillUserOnGoingFragment());
         milluserfragmentlist.add(new MillUserPendingFragment());
         milluserfragmentlist.add(new MillUserCompletedFragment());
-        milluserfragmentlist.add(new MillUserCancledFragment());
+        milluserfragmentlist.add(new MillUserCancelFragment());
 
         MillUserFragmentAdapter millUserFragmentAdapter = new MillUserFragmentAdapter(getActivity().
                 getSupportFragmentManager(),milluserfragmentlist);

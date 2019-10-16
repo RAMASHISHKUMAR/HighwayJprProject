@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.highwayjprproject.fragment.customer.CustomerCancledFragment;
+import com.highwayjprproject.fragment.customer.CustomerCancelFragment;
 import com.highwayjprproject.fragment.customer.CustomerCompletedFragment;
 import com.highwayjprproject.fragment.customer.CustomerOnGoingFragment;
 import com.highwayjprproject.fragment.customer.CustomerPendingFragment;
@@ -46,8 +46,8 @@ public class CustomerFragmentAdapter extends FragmentPagerAdapter {
             return "PENDING";
         }else if (customerfragments.get(position)instanceof CustomerCompletedFragment){
             return "COMPLETED";
-        }if (customerfragments.get(position)instanceof CustomerCancledFragment){
-            return "CANCLED";
+        }if (customerfragments.get(position)instanceof CustomerCancelFragment){
+            return "CANCEL";
         }
             return " ";
         //return super.getPageTitle(position);

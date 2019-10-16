@@ -49,7 +49,7 @@ public class CustomerDashBordFragment extends Fragment {
         customerfragmentList.add(new CustomerOnGoingFragment());
         customerfragmentList.add(new CustomerPendingFragment());
         customerfragmentList.add(new CustomerCompletedFragment());
-        customerfragmentList.add(new CustomerCancledFragment());
+        customerfragmentList.add(new CustomerCancelFragment());
 
         CustomerFragmentAdapter fragmentAdapter = new CustomerFragmentAdapter(getActivity().
                 getSupportFragmentManager(), customerfragmentList);

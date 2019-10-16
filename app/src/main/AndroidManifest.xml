@@ -2,13 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.highwayjprproject">
 
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="false" />
-    <uses-feature
-        android:glEsVersion="0x00020000"
-        android:required="true" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,6 +11,13 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/highway_logo"
@@ -26,31 +26,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.OwnerLoginActivity"></activity>
-        <activity android:name=".activity.MillerLoginActivity" />
-        <activity android:name=".activity.DriverLoginActivity" />
-        <activity android:name=".activity.LoginOptionActivity" />
+
         <activity
-            android:name=".fragment.map.BookingMapsActivity"
-            android:label="@string/title_activity_booking_maps"
-            android:screenOrientation="portrait" />
+            android:name=".map.BookingMapActivity" android:screenOrientation="portrait"
+            android:label="@string/title_activity_new_booking_map"></activity>
+        <activity android:name=".activity.OwnerLoginActivity" android:screenOrientation="portrait" />
+        <activity android:name=".activity.MillerLoginActivity" android:screenOrientation="portrait" />
+        <activity android:name=".activity.DriverLoginActivity" android:screenOrientation="portrait" />
+        <activity android:name=".activity.LoginOptionActivity" android:screenOrientation="portrait" />
+        <activity android:name=".activity.RegistrationDetailsActivity" android:screenOrientation="portrait" />
+        <activity android:name=".activity.MobileOtpVerificationActivity" android:screenOrientation="portrait" />
+        <activity android:name=".activity.CustomerLoginActivity" android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.RegistrationDetailsActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.MobileOtpVerificationActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.CustomerLoginActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.DashBoardActivity"
+            android:name=".activity.DashBoardActivity"  android:screenOrientation="portrait"
             android:label="@string/title_activity_dash_board"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.SplashActivity"
-            android:screenOrientation="portrait">
+            android:name=".activity.SplashActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -58,9 +50,6 @@
             </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" /> <!-- android:value="AIzaSyDeZEGKWXQv_jnm-x-7isfOHH1jjNV9asM" /> -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -70,6 +59,18 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepaths" />
         </provider>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDeZEGKWXQv_jnm-x-7isfOHH1jjNV9asM" />
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+
     </application>
 
 </manifest>

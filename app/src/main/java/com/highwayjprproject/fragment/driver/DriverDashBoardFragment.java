@@ -53,7 +53,7 @@ public class DriverDashBoardFragment extends Fragment {
         driverFragmentList.add(new DriverOnGoingFragment());
         driverFragmentList.add(new DriverPendingFragment());
         driverFragmentList.add(new DriverCompletedFragment());
-        driverFragmentList.add(new DriverCancledFragment());
+        driverFragmentList.add(new DriverCancelFragment());
 
         DriverFragmentAdapter driverFragmentAdapter = new DriverFragmentAdapter(getActivity().
                 getSupportFragmentManager(),driverFragmentList);

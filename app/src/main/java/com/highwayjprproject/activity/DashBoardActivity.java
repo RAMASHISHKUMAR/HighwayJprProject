@@ -25,6 +25,7 @@ import com.highwayjprproject.R;
 import com.highwayjprproject.fragment.customer.CustomerDashBordFragment;
 import com.highwayjprproject.fragment.driver.DriverDashBoardFragment;
 import com.highwayjprproject.fragment.milluser.MillUserDashBoardFragment;
+import com.highwayjprproject.map.BookingMapActivity;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -43,9 +44,10 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
     private TextView tvName, tvMobileNo, tvSetting;
     private NavigationView navigationView;
     String userRole;
-    private MenuItem newBooking, myBooking, wallet, notification, rateCard, help, about, share, send, gallery,logout;
+    private MenuItem newBooking, myBooking, wallet, notification, rateCard, help, about, share, send, gallery, logout;
     private MenuItem item;
     private Button btnLogOut;
+    Intent intent;
 
 
     @Override
@@ -58,7 +60,6 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         navAccoringRoleId();// According RoleId Nevigation Icon
         //setOnClickListenerOperation();
     }
-
 
 
     public void nevigationInitView() {
@@ -192,37 +193,43 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
     }
 
 
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Fragment fragment = null;
         int id = menuItem.getItemId();
-//  1 admin  //  2 mill user   // 3  driver // // 4  customer   // 5 owner
-        switch (id){
-            case  R.id.nav_new_booking:
+        //  1 admin  //  2 mill user   // 3  driver // // 4  customer   // 5 owner
+        switch (id) {
+            case R.id.nav_new_booking:
                 dashBoardToolbar.setTitle("New Booking");
-               switch (userRole){
-                   case "1":
+                switch (userRole) {
+                    case "1":
 
-                       break;
-                   case "2":
+                        break;
+                    case "2":
+                        intent = new Intent(DashBoardActivity.this, BookingMapActivity.class);
+                        startActivity(intent);
+                        finish();
+                        break;
 
-                       break;
-                   case "3":
+                    case "3":
+                        intent = new Intent(DashBoardActivity.this, BookingMapActivity.class);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    case "4":
+                        intent = new Intent(DashBoardActivity.this, BookingMapActivity.class);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    case "5":
 
-                       break;
-                   case "4":
-
-                       break;
-                   case "5":
-
-                      break;
-               }
+                        break;
+                }
                 break;
 
-            case  R.id.nav_my_booking:
+            case R.id.nav_my_booking:
                 dashBoardToolbar.setTitle("My Booking");
-                switch (userRole){
+                switch (userRole) {
                     case "1":
                         /*fragment = CustomerDashBordFragment.newInstance();
                         replaceFragment(fragment);*/
@@ -246,9 +253,9 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 }
                 break;
 
-            case  R.id.nav_wallet:
+            case R.id.nav_wallet:
                 dashBoardToolbar.setTitle("Wallet");
-                switch (userRole){
+                switch (userRole) {
                     case "1":
                         break;
                     case "2":
@@ -266,9 +273,9 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 }
                 break;
 
-            case  R.id.nav_notification:
+            case R.id.nav_notification:
                 dashBoardToolbar.setTitle("Notification");
-                switch (userRole){
+                switch (userRole) {
                     case "1":
                         break;
                     case "2":
@@ -286,9 +293,9 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 }
                 break;
 
-            case  R.id.nav_rate_card:
+            case R.id.nav_rate_card:
                 dashBoardToolbar.setTitle("Rate Card");
-                switch (userRole){
+                switch (userRole) {
                     case "1":
                         break;
                     case "2":
@@ -306,9 +313,9 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 }
                 break;
 
-            case  R.id.nav_help:
+            case R.id.nav_help:
                 dashBoardToolbar.setTitle("Help");
-                switch (userRole){
+                switch (userRole) {
                     case "1":
                         break;
                     case "2":
@@ -326,9 +333,9 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 }
                 break;
 
-            case  R.id.nav_about:
+            case R.id.nav_about:
                 dashBoardToolbar.setTitle("About");
-                switch (userRole){
+                switch (userRole) {
                     case "1":
                         break;
                     case "2":
@@ -346,9 +353,9 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 }
                 break;
 
-            case  R.id.nav_share:
+            case R.id.nav_share:
                 dashBoardToolbar.setTitle("Share");
-                switch (userRole){
+                switch (userRole) {
                     case "1":
                         break;
                     case "2":
@@ -366,9 +373,9 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 }
                 break;
 
-            case  R.id.nav_send:
+            case R.id.nav_send:
                 dashBoardToolbar.setTitle("Send");
-                switch (userRole){
+                switch (userRole) {
                     case "1":
                         break;
                     case "2":
@@ -386,8 +393,8 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                 }
                 break;
 
-                case R.id.nav_logout:
-                    logOut();
+            case R.id.nav_logout:
+                logOut();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -412,9 +419,9 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
 
     public void logOut() {
 
-                HighwayPrefs.putBoolean(getApplicationContext(), Constants.LoginCheck, false);
-                Intent intent = new Intent(DashBoardActivity.this, CustomerLoginActivity.class);
-                startActivity(intent);
+        HighwayPrefs.putBoolean(getApplicationContext(), Constants.LoginCheck, false);
+        Intent intent = new Intent(DashBoardActivity.this, CustomerLoginActivity.class);
+        startActivity(intent);
 
     }
 

@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.highwayjprproject.fragment.milluser.MillUserCancledFragment;
+import com.highwayjprproject.fragment.milluser.MillUserCancelFragment;
 import com.highwayjprproject.fragment.milluser.MillUserCompletedFragment;
 import com.highwayjprproject.fragment.milluser.MillUserOnGoingFragment;
 import com.highwayjprproject.fragment.milluser.MillUserPendingFragment;
@@ -45,8 +45,8 @@ public class MillUserFragmentAdapter extends FragmentPagerAdapter {
             return "PENDING";
         }else if(milluserfragment.get(position)instanceof MillUserCompletedFragment){
             return "COMPLETED";
-        }if (milluserfragment.get(position)instanceof MillUserCancledFragment){
-            return "CANCLED";
+        }if (milluserfragment.get(position)instanceof MillUserCancelFragment){
+            return "CANCEL";
         }
         return "";
         //return super.getPageTitle(position);

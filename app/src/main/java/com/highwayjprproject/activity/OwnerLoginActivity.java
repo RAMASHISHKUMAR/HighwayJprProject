@@ -11,8 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.highwayjprproject.R;
-import com.highwayjprproject.model.LoginRegisterRequest;
-import com.highwayjprproject.model.LoginRegisterResponse;
+import com.highwayjprproject.model.login.LoginRegisterRequest;
+import com.highwayjprproject.model.login.LoginRegisterResponse;
 import com.highwayjprproject.retrofit.RestClient;
 import com.highwayjprproject.utils.Constants;
 import com.highwayjprproject.utils.HighwayPrefs;

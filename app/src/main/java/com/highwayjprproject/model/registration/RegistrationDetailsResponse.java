@@ -1,9 +1,9 @@
-package com.highwayjprproject.model;
+package com.highwayjprproject.model.registration;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class VerifyOtpResponse {
+public class RegistrationDetailsResponse {
 
 @SerializedName("Status")
 @Expose

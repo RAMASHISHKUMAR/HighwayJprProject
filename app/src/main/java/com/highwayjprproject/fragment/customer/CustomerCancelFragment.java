@@ -1,4 +1,4 @@
-package com.highwayjprproject.fragment.milluser;
+package com.highwayjprproject.fragment.customer;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,18 +7,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.highwayjprproject.R;
 
-public class MillUserCancledFragment extends Fragment {
+public class CustomerCancelFragment extends Fragment {
+    private RecyclerView cancleRecycler;
 
-    public MillUserCancledFragment() {
+
+    public CustomerCancelFragment() {
         // Required empty public constructor
     }
 
 
-    public static MillUserCancledFragment newInstance() {
-        MillUserCancledFragment fragment = new MillUserCancledFragment();
+    public static CustomerCancelFragment newInstance(String param1, String param2) {
+        CustomerCancelFragment fragment = new CustomerCancelFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -35,7 +38,11 @@ public class MillUserCancledFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mill_user_cancled, container, false);
+        View view= inflater.inflate(R.layout.fragment_customer_cancel, container, false);
+
+        cancleRecycler = view.findViewById(R.id.Cancled_RecyclerView);
+       // prepareList();
+        return view;
     }
 
 

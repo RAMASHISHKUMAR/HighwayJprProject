@@ -36,8 +36,8 @@ import java.io.File;
 import java.util.Calendar;
 import java.util.List;
 
-import com.highwayjprproject.model.RegistrationDetailsRequest;
-import com.highwayjprproject.model.RegistrationDetailsResponse;
+import com.highwayjprproject.model.registration.RegistrationDetailsRequest;
+import com.highwayjprproject.model.registration.RegistrationDetailsResponse;
 
 import com.highwayjprproject.retrofit.RestClient;
 import retrofit2.Call;

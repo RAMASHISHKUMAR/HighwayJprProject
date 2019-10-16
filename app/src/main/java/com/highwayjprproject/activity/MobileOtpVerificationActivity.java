@@ -16,8 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.highwayjprproject.R;
-import com.highwayjprproject.model.VerifyOtpRequest;
-import com.highwayjprproject.model.VerifyOtpResponse;
+import com.highwayjprproject.model.otpverify.VerifyOtpRequest;
+import com.highwayjprproject.model.otpverify.VerifyOtpResponse;
 import com.highwayjprproject.retrofit.RestClient;
 import retrofit2.Call;
 import retrofit2.Callback;

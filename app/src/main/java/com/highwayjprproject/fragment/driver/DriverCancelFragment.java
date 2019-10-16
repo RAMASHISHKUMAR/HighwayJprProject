@@ -11,15 +11,15 @@ import androidx.fragment.app.Fragment;
 import com.highwayjprproject.R;
 
 
-public class DriverCancledFragment extends Fragment {
+public class DriverCancelFragment extends Fragment {
 
 
-    public DriverCancledFragment() {
+    public DriverCancelFragment() {
         // Required empty public constructor
     }
 
-    public static DriverCancledFragment newInstance() {
-        DriverCancledFragment fragment = new DriverCancledFragment();
+    public static DriverCancelFragment newInstance() {
+        DriverCancelFragment fragment = new DriverCancelFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -36,7 +36,7 @@ public class DriverCancledFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_driver_cancled, container, false);
+        return inflater.inflate(R.layout.fragment_driver_cancel, container, false);
     }
 
     @Override

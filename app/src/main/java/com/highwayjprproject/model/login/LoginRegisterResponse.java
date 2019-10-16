@@ -1,4 +1,4 @@
-package com.highwayjprproject.model;
+package com.highwayjprproject.model.login;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

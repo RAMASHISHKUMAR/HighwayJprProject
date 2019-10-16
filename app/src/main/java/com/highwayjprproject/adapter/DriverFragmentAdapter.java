@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.highwayjprproject.fragment.driver.DriverCancledFragment;
+import com.highwayjprproject.fragment.driver.DriverCancelFragment;
 import com.highwayjprproject.fragment.driver.DriverCompletedFragment;
 import com.highwayjprproject.fragment.driver.DriverOnGoingFragment;
 import com.highwayjprproject.fragment.driver.DriverPendingFragment;
@@ -44,8 +44,8 @@ public class DriverFragmentAdapter  extends FragmentPagerAdapter {
             return "PENDING";
         }else if (driverfragmentlist.get(position)instanceof DriverCompletedFragment){
             return "COMPLETED";
-        }if (driverfragmentlist.get(position)instanceof DriverCancledFragment){
-            return "CANCLED";
+        }if (driverfragmentlist.get(position)instanceof DriverCancelFragment){
+            return "CANCEL";
         }
         return "";
         //return super.getPageTitle(position);

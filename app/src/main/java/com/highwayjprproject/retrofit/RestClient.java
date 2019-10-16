@@ -1,13 +1,13 @@
 package com.highwayjprproject.retrofit;
 
 
-import com.highwayjprproject.model.LoginRegisterRequest;
-import com.highwayjprproject.model.LoginRegisterResponse;
+import com.highwayjprproject.model.login.LoginRegisterRequest;
+import com.highwayjprproject.model.login.LoginRegisterResponse;
 
-import com.highwayjprproject.model.RegistrationDetailsRequest;
-import com.highwayjprproject.model.RegistrationDetailsResponse;
-import com.highwayjprproject.model.VerifyOtpRequest;
-import com.highwayjprproject.model.VerifyOtpResponse;
+import com.highwayjprproject.model.registration.RegistrationDetailsRequest;
+import com.highwayjprproject.model.registration.RegistrationDetailsResponse;
+import com.highwayjprproject.model.otpverify.VerifyOtpRequest;
+import com.highwayjprproject.model.otpverify.VerifyOtpResponse;
 import retrofit2.Callback;
 
 public class RestClient {

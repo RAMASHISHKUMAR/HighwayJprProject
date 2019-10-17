@@ -26,6 +26,7 @@ import com.highwayjprproject.fragment.customer.CustomerDashBordFragment;
 import com.highwayjprproject.fragment.driver.DriverDashBoardFragment;
 import com.highwayjprproject.fragment.milluser.MillUserDashBoardFragment;
 import com.highwayjprproject.map.BookingMapActivity;
+import com.highwayjprproject.map.MapFragment;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -65,7 +66,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
     public void nevigationInitView() {
         dashBoardToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(dashBoardToolbar);
-        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         navigationView = findViewById(R.id.nav_view);
         //btnLogOut = findViewById(R.id.btnLogout);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -206,18 +207,15 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
 
                         break;
                     case "2":
-                        intent = new Intent(DashBoardActivity.this, BookingMapActivity.class);
-                        startActivity(intent);
-                        finish();
+                        fragment = MapFragment.newInstance();
+                        replaceFragment(fragment);
                         break;
-
                     case "3":
-                        intent = new Intent(DashBoardActivity.this, BookingMapActivity.class);
-                        startActivity(intent);
-                        finish();
+                        fragment = MapFragment.newInstance();
+                        replaceFragment(fragment);
                         break;
                     case "4":
-                        intent = new Intent(DashBoardActivity.this, BookingMapActivity.class);
+                         intent = new Intent(DashBoardActivity.this, BookingMapActivity.class);
                         startActivity(intent);
                         finish();
                         break;

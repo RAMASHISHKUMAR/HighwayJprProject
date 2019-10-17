@@ -23,14 +23,12 @@ public class SplashActivity extends AppCompatActivity {
         splashScreenHandler();
 
     }
-
-
     public void splashScreenHandler(){
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 if (HighwayPrefs.getBoolean(SplashActivity.this, Constants.LOGGED_IN)) {
-                    Intent i = new Intent(SplashActivity.this, LoginOptionActivity.class);
+                    Intent i = new Intent(SplashActivity.this, DashBoardActivity.class);
                     startActivity(i);
                     finish();
                 } else {

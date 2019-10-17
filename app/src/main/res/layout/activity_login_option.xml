@@ -50,12 +50,12 @@
                     android:columnOrderPreserved="true">
 
                     <LinearLayout
-                        android:id="@+id/linearCustomer"
+                        android:id="@+id/LinearCustomer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
                         android:layout_margin="@dimen/_10dp"
-                        android:background="@drawable/cardview_border"
+                        android:background="@drawable/cardview_border_default"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:paddingBottom="@dimen/padding_bottom_8">
@@ -70,21 +70,8 @@
                             android:textSize="@dimen/size_15"
                             android:textStyle="bold" />
 
-                        <RadioGroup
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <RadioButton
-                                android:id="@+id/radioBtnCustomer"
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/size_30"
-                                android:text="Customer"
-                                android:textColor="@color/black"
-                                android:textAllCaps="true"
-                                android:onClick="onClickUser"
-                                tools:ignore="OnClick"/>
-                        </RadioGroup><!--
                         <TextView
+                            android:id="@+id/txtCustomer"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -92,17 +79,17 @@
                             android:paddingRight="@dimen/padding_left_15"
                             android:text="Customer"
                             android:textAllCaps="true"
-                            android:textColor="@color/Black" />-->
+                            android:textColor="@color/Black" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/linearMiller"
+                        android:id="@+id/LinearMiller"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
                         android:layout_margin="10dp"
                         android:layout_marginLeft="@dimen/padding_left_10"
-                        android:background="@drawable/cardview_border"
+                        android:background="@drawable/cardview_border_default"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:paddingBottom="8dp">
@@ -118,22 +105,8 @@
                             android:textSize="@dimen/size_15"
                             android:textStyle="bold" />
 
-                        <RadioGroup
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <RadioButton
-                                android:id="@+id/radioBtnMiller"
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/size_30"
-                                android:text="Miller   "
-                                android:textColor="@color/black"
-                                android:textAllCaps="true"
-                                android:onClick="onClickUser"
-                                tools:ignore="OnClick"/>
-                        </RadioGroup>
-
-                       <!-- <TextView
+                        <TextView
+                            android:id="@+id/txtMiller"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -141,16 +114,16 @@
                             android:paddingRight="@dimen/padding_left_15"
                             android:text=" Miller "
                             android:textAllCaps="true"
-                            android:textColor="@color/Black" />-->
+                            android:textColor="@color/Black" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/linearOwner"
+                        android:id="@+id/LnearOwner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
                         android:layout_margin="10dp"
-                        android:background="@drawable/cardview_border"
+                        android:background="@drawable/cardview_border_default"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:paddingBottom="8dp">
@@ -166,22 +139,8 @@
                             android:textSize="@dimen/size_15"
                             android:textStyle="bold" />
 
-                        <RadioGroup
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <RadioButton
-                                android:id="@+id/radioBtnOwner"
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/size_30"
-                                android:text="owner  "
-                                android:textColor="@color/black"
-                                android:textAllCaps="true"
-                                android:onClick="onClickUser"
-                                tools:ignore="OnClick"/>
-                        </RadioGroup>
-
-                       <!-- <TextView
+                        <TextView
+                            android:id="@+id/txtOwner"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -189,17 +148,17 @@
                             android:paddingRight="@dimen/padding_left_15"
                             android:text=" Owner "
                             android:textAllCaps="true"
-                            android:textColor="@color/Black" />-->
+                            android:textColor="@color/Black" />
                     </LinearLayout>
 
 
                     <LinearLayout
-                        android:id="@+id/linearDriver"
+                        android:id="@+id/LinearDriver"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
                         android:layout_margin="10dp"
-                        android:background="@drawable/cardview_border"
+                        android:background="@drawable/cardview_border_default"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:paddingBottom="8dp">
@@ -215,22 +174,8 @@
                             android:textSize="@dimen/size_15"
                             android:textStyle="bold" />
 
-                        <RadioGroup
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <RadioButton
-                                android:id="@+id/radioBtnDriver"
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/size_30"
-                                android:text="Customer"
-                                android:textColor="@color/black"
-                                android:textAllCaps="true"
-                                android:onClick="onClickUser"
-                                tools:ignore="OnClick"/>
-                        </RadioGroup>
-
-                        <!--<TextView
+                        <TextView
+                            android:id="@+id/txtDriver"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -238,7 +183,7 @@
                             android:paddingRight="@dimen/padding_left_15"
                             android:text=" Driver "
                             android:textAllCaps="true"
-                            android:textColor="@color/Black" />-->
+                            android:textColor="@color/Black" />
                     </LinearLayout>
 
 

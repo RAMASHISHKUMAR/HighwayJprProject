@@ -20,7 +20,10 @@ android {
     }
     buildTypes {
         release {
+            debuggable false
+            multiDexEnabled true
             minifyEnabled false
+
             buildConfigField "String", "API_SERVER_IP", "\"http://vrok.in/highway_dev/\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

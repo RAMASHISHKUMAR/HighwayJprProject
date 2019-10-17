@@ -408,7 +408,6 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
         } else {
             edtTxtUserAddress.setError(null);
         }
-
         return true;
     }
 

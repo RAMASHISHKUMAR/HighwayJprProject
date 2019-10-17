@@ -4,19 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.highwayjprproject.R;
 
 public class LoginOptionActivity extends AppCompatActivity {
-
-    private RadioButton radioCustomer, radioDriver, radioMiller, radioOwner;
+    private LinearLayout customer, driver, miller, owner;
     private ImageView imgCustomer, imgDriver,imgMiller, imgOwner;
+    private TextView tvCustomer,tvMiller,tvOwner,tvDriver;
     private Button  btnNext;
     private String userRole;
     Intent intent;
@@ -27,72 +29,98 @@ public class LoginOptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login_option);
 
         initialView();
+        clickListenerView();
 
     }
 
     public void initialView(){
-        radioCustomer = findViewById(R.id.radioBtnCustomer);
-        radioDriver = findViewById(R.id.radioBtnMiller);
-        radioMiller = findViewById(R.id.radioBtnOwner);
-        radioOwner = findViewById(R.id.radioBtnDriver);
+        customer  = findViewById(R.id.LinearCustomer);
+        driver = findViewById(R.id.LinearDriver);
+        miller = findViewById(R.id.LinearMiller);
+        owner = findViewById(R.id.LnearOwner);
+        // for img
+        imgCustomer = findViewById(R.id.ImgCustomer);
+        imgMiller = findViewById(R.id.ImgMiller);
+        imgOwner = findViewById(R.id.ImgOwner);
+        imgDriver = findViewById(R.id.ImgDriver);
+        // for text
+        tvCustomer = findViewById(R.id.txtCustomer);
+        tvMiller = findViewById(R.id.txtMiller);
+        tvOwner = findViewById(R.id.txtOwner);
+        tvDriver = findViewById(R.id.txtDriver);
+        //for button
         btnNext = findViewById(R.id.btnNext);
+
     }
 
-    public void onClickUser(View view){
-
-        btnNext.setOnClickListener(new View.OnClickListener() {
+    public void clickListenerView(){
+        miller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean checked = ((RadioButton) view).isChecked();
-                switch (view.getId()){
-                    case R.id.radioBtnCustomer:
-                        if (checked)
-                            radioCustomer.setText("Driver");
-                        userRole = radioCustomer.getText().toString().trim();
-                        Toast.makeText(LoginOptionActivity.this,radioCustomer.getText().toString(), Toast.LENGTH_SHORT).show();
-                        intent = new Intent(LoginOptionActivity.this,CustomerLoginActivity.class);
-                        startActivity(intent);
-                        finish();
-                        break;
+                userRole="2";
+                updateSelectionView(miller);
+            }
+        });
 
-                    case R.id.radioBtnDriver:
-                        if (checked)
-                            radioDriver.setText("Driver");
-                        userRole = radioDriver.getText().toString().trim();
-                        Toast.makeText(LoginOptionActivity.this,radioDriver.getText().toString(), Toast.LENGTH_SHORT).show();
-                        intent = new Intent(LoginOptionActivity.this,DriverLoginActivity.class);
-                        startActivity(intent);
-                        finish();
-                        break;
-
-                    case R.id.radioBtnMiller:
-                        if (checked)
-                            radioMiller.setText("Miller");
-                        userRole = radioMiller.getText().toString().trim();
-                        Toast.makeText(LoginOptionActivity.this,radioMiller.getText().toString(), Toast.LENGTH_SHORT).show();
-                        intent = new Intent(LoginOptionActivity.this,MillerLoginActivity.class);
-                        startActivity(intent);
-                        finish();
-                        break;
-
-                    case R.id.radioBtnOwner:
-                        if (checked)
-                            radioOwner.setText("Owner");
-                        userRole = radioOwner.getText().toString().trim();
-                        Toast.makeText(LoginOptionActivity.this,radioOwner.getText().toString(), Toast.LENGTH_SHORT).show();
-                        intent = new Intent(LoginOptionActivity.this,OwnerLoginActivity.class);
-                        startActivity(intent);
-                        finish();
-                        break;
-                }
+        driver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userRole="3";
+                updateSelectionView(driver);
 
             }
         });
 
+        customer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userRole = "4";
+                updateSelectionView(customer);
+            }
+        });
 
+        owner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userRole= "5";
+                updateSelectionView(owner);
+            }
+        });
 
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (TextUtils.isEmpty(userRole)){
+                    Toast.makeText(LoginOptionActivity.this, "Pls select user role", Toast.LENGTH_SHORT).show();
 
+                }else{
+                    switch (userRole){
+                        case "2":
+                            intent = new Intent(LoginOptionActivity.this,MillerLoginActivity.class);
+                            startActivity(intent);
+                            finish();
+                        case "3":
+                            intent = new Intent(LoginOptionActivity.this,DriverLoginActivity.class);
+                            startActivity(intent);
+                            finish();
+                        case "4":
+                            intent = new Intent(LoginOptionActivity.this,CustomerLoginActivity.class);
+                            startActivity(intent);
+                            finish();
+                        case "5":
+                            intent = new Intent(LoginOptionActivity.this,OwnerLoginActivity.class);
+                            startActivity(intent);
+                            finish();
+                    }
+                }
+            }
+        });
     }
-
-
+    private void updateSelectionView(LinearLayout selectedView) {
+        customer.setBackgroundResource(R.drawable.cardview_border_default);
+        driver.setBackgroundResource(R.drawable.cardview_border_default);
+        miller.setBackgroundResource(R.drawable.cardview_border_default);
+        owner.setBackgroundResource(R.drawable.cardview_border_default);
+        selectedView.setBackgroundResource(R.drawable.cardview_border_selected);
+    }
 }

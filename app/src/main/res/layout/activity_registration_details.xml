@@ -103,10 +103,11 @@
                         android:layout_height="@dimen/margin_40"
                         android:background="@drawable/input_round_shape"
                         android:hint="Enter Name"
-                        android:textAllCaps="true"
                         android:maxLines="1"
                         android:padding="4dp"
+                        android:maxLength="30"
                         android:textColor="@color/black" />
+
 
                 </LinearLayout>
 
@@ -139,6 +140,7 @@
                         android:hint="Enter Email"
                         android:maxLines="1"
                         android:padding="4dp"
+                        android:maxLength="30"
                         android:textColor="@color/black" />
 
                 </LinearLayout>

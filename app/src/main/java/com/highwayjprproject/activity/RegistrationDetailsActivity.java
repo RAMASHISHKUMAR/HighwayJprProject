@@ -255,7 +255,6 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
         }
     }
 
-
     private void showPermissionsAlert() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Permissions required!")
@@ -272,7 +271,6 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
                 }).show();
     }
 
-
     public String getEncoded64ImageStringFromBitmap(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
@@ -280,7 +278,6 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
         String imgString = Base64.encodeToString(byteFormat, Base64.NO_WRAP);
         return imgString;
     }
-
 
     public void backArrowOperation() {
         imgDetailbackArrow.setOnClickListener(new View.OnClickListener() {
@@ -331,7 +328,6 @@ public class RegistrationDetailsActivity extends AppCompatActivity {
             }
         });
     }
-
 
     public void onUserRadioButtonClicked(View v) {
         boolean checked = ((RadioButton) v).isChecked();

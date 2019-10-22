@@ -25,7 +25,6 @@ import com.highwayjprproject.R;
 import com.highwayjprproject.fragment.customer.CustomerDashBordFragment;
 import com.highwayjprproject.fragment.driver.DriverDashBoardFragment;
 import com.highwayjprproject.fragment.milluser.MillUserDashBoardFragment;
-import com.highwayjprproject.map.BookingMapActivity;
 import com.highwayjprproject.map.MapFragment;
 import com.squareup.picasso.Picasso;
 
@@ -45,7 +44,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
     private TextView tvName, tvMobileNo, tvSetting;
     private NavigationView navigationView;
     String userRole;
-    private MenuItem newBooking, myBooking, wallet, notification, rateCard, help, about, share, send, gallery, logout;
+    private MenuItem newBooking, myBooking,addVehicle, wallet, notification, rateCard, help, about, share, send, gallery,tCondition, logout;
     private MenuItem item;
     private Button btnLogOut;
     Intent intent;
@@ -86,6 +85,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         Menu menues = navigationView.getMenu();
         newBooking = menues.findItem(R.id.nav_new_booking);
         myBooking = menues.findItem(R.id.nav_my_booking);
+        addVehicle=menues.findItem(R.id.nav_add_vehicle);
         wallet = menues.findItem(R.id.nav_wallet);
         notification = menues.findItem(R.id.nav_notification);
         rateCard = menues.findItem(R.id.nav_rate_card);
@@ -94,6 +94,7 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
         share = menues.findItem(R.id.nav_share);
         send = menues.findItem(R.id.nav_send);
         gallery = menues.findItem(R.id.nav_gallery);
+        tCondition=menues.findItem(R.id.nav_trmCondition);
         logout = menues.findItem(R.id.nav_logout);
 
     }
@@ -125,44 +126,66 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
             case "4":
                 newBooking.setVisible(true);
                 myBooking.setVisible(true);
+                addVehicle.setVisible(false);
                 wallet.setVisible(true);
-                notification.setVisible(true);
-                rateCard.setVisible(true);
-                help.setVisible(true);
+                notification.setVisible(false);
+                rateCard.setVisible(false);
+                help.setVisible(false);
                 about.setVisible(true);
                 share.setVisible(true);
-                send.setVisible(true);
+                send.setVisible(false);
                 gallery.setVisible(false);
+                tCondition.setVisible(true);
                 logout.setVisible(true);
                 break;
 
             case "3":
                 newBooking.setVisible(false);
                 myBooking.setVisible(true);
-                wallet.setVisible(true);
-                notification.setVisible(true);
+                addVehicle.setVisible(false);
+                wallet.setVisible(false);
+                notification.setVisible(false);
                 rateCard.setVisible(false);
-                help.setVisible(true);
+                help.setVisible(false);
                 about.setVisible(true);
                 share.setVisible(false);
                 send.setVisible(false);
                 gallery.setVisible(false);
+                tCondition.setVisible(false);
                 logout.setVisible(true);
                 break;
 
             case "2":
                 newBooking.setVisible(true);
                 myBooking.setVisible(true);
-                wallet.setVisible(true);
-                notification.setVisible(true);
-                rateCard.setVisible(true);
-                help.setVisible(true);
+                addVehicle.setVisible(false);
+                wallet.setVisible(false);
+                notification.setVisible(false);
+                rateCard.setVisible(false);
+                help.setVisible(false);
                 about.setVisible(true);
                 share.setVisible(true);
-                send.setVisible(true);
-                gallery.setVisible(true);
+                send.setVisible(false);
+                gallery.setVisible(false);
+                tCondition.setVisible(true);
                 logout.setVisible(true);
                 break;
+
+          /*  case "5":
+                newBooking.setVisible(false);
+                myBooking.setVisible(true);
+                addVehicle.setVisible(true);
+                wallet.setVisible(false);
+                notification.setVisible(false);
+                rateCard.setVisible(false);
+                help.setVisible(false);
+                about.setVisible(true);
+                share.setVisible(true);
+                send.setVisible(false);
+                gallery.setVisible(false);
+                tCondition.setVisible(true);
+                logout.setVisible(true);
+                break;*/
         }
 
     }
@@ -215,9 +238,11 @@ public class DashBoardActivity extends AppCompatActivity implements NavigationVi
                         replaceFragment(fragment);
                         break;
                     case "4":
-                         intent = new Intent(DashBoardActivity.this, BookingMapActivity.class);
+                        fragment = MapFragment.newInstance();
+                        replaceFragment(fragment);
+                       /*  intent = new Intent(DashBoardActivity.this, BookingMapActivity.class);
                         startActivity(intent);
-                        finish();
+                        finish();*/
                         break;
                     case "5":
 

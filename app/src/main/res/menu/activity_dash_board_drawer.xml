@@ -13,6 +13,11 @@
             android:id="@+id/nav_my_booking"
             android:icon="@drawable/my_booking_image"
             android:title="@string/menu_my_booking" />
+
+        <item
+            android:id="@+id/nav_add_vehicle"
+            android:icon="@drawable/add_vihicle"
+            android:title="@string/menu_my_booking" />
         <item
             android:id="@+id/nav_wallet"
             android:icon="@drawable/wallet_account"
@@ -47,23 +52,25 @@
             android:title="@string/menu_send" />
 
         <item
-            android:id="@+id/nav_logout"
-            android:icon="@drawable/logout"
-            android:title="@string/menu_logout"
-            />
+            android:id="@+id/nav_trmCondition"
+            android:icon="@drawable/term_and_condition"
+            android:title="@string/menu_term_condition" />
+
+
 
     </group>
-   <!-- <item android:title="Communicate">
+    <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
-            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_power_settings_new_black"
+                android:title="@string/menu_logout"
+                />
+           <!-- <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
+                android:title="@string/menu_send" />-->
         </menu>
-    </item>-->
+    </item>
 
 </menu>

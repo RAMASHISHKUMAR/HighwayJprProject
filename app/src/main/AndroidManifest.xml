@@ -27,9 +27,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
-        <activity
-            android:name=".map.BookingMapActivity" android:screenOrientation="portrait"
-            android:label="@string/title_activity_new_booking_map"></activity>
         <activity android:name=".activity.OwnerLoginActivity" android:screenOrientation="portrait" />
         <activity android:name=".activity.MillerLoginActivity" android:screenOrientation="portrait" />
         <activity android:name=".activity.DriverLoginActivity" android:screenOrientation="portrait" />

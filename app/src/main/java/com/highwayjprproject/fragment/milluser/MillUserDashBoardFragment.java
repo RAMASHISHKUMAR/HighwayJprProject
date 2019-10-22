@@ -55,8 +55,7 @@ public class MillUserDashBoardFragment extends Fragment {
         milluserfragmentlist.add(new MillUserCompletedFragment());
         milluserfragmentlist.add(new MillUserCancelFragment());
 
-        MillUserFragmentAdapter millUserFragmentAdapter = new MillUserFragmentAdapter(getActivity().
-                getSupportFragmentManager(),milluserfragmentlist);
+        MillUserFragmentAdapter millUserFragmentAdapter = new MillUserFragmentAdapter(getActivity().getSupportFragmentManager(),milluserfragmentlist);
 
         millUserViewPager.setAdapter(millUserFragmentAdapter);
         millUsertabMode.setupWithViewPager(millUserViewPager);

@@ -12,6 +12,7 @@
 
     <string name="menu_new_booking">New Booking</string>
     <string name="menu_my_booking">My Booking</string>
+    <string name="menu_add_vehicle">Add Vehicle</string>
     <string name="men_track_your_booking">Track Your Booking</string>
     <string name="menu_rate_card">Rate Card</string>
     <string name="menu_wallet">Wallet</string>
@@ -22,6 +23,7 @@
     <string name="menu_share">Share</string>
     <string name="name">User name</string>
     <string name="menu_send">Send</string>
+    <string name="menu_term_condition">Term and Condition</string>
     <string name="menu_logout">Logout</string>
     <string name="menu_setting">Setting</string>
     <string name="email">ramashish.bhumca16@gmail.com</string>

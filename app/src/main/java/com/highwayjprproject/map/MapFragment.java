@@ -92,7 +92,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         imgPickupFavoriteImg = view.findViewById(R.id.pickupFavoriteImg);
         locationSearch = view.findViewById(R.id.edtSourceLOcation);
 
-         searchLocation();
+        searchLocation();
         return view;
     }
 
